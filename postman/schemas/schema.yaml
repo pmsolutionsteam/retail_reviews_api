@@ -1,0 +1,2801 @@
+---
+openapi: 3.0.3
+info:
+  title: ProductReviews
+  description: "# Products Reviews - Endpoints for managing and retrieving product reviews\n<img src=\"https://pics.freeicons.io/uploads/icons/png/12203050671595452647-512.png\" alt=\"drawing\" width=\"30\" height=\"30\"/></img>\n\nThis collection includes api's for managing users as intended to contain core SCUM operations as well as additional functionality"
+  version: 1.0.0
+  contact: {}
+servers:
+  - url: "{{productReviewsUrl}}"
+paths:
+  "/reviews/{productId}":
+    get:
+      tags:
+        - Reviews
+      summary: All Reviews for a given ProductId
+      description: All Reviews for a given ProductId
+      operationId: allReviewsForAGivenProductId
+      responses:
+        "200":
+          description: All Reviews for a given ProductId
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    example: review
+                  paging:
+                    type: object
+                    properties:
+                      next_page_url:
+                        type: string
+                        example: /m/512774/reviews?scroll=DXF1ZXJ5QW5kRmV0Y2gBAAAAAQbseNkWSl93cDFCaDNUeWVJNTJGRHktZWhQQQ==
+                      page_size:
+                        type: number
+                        example: 25
+                      pages_total:
+                        type: number
+                        example: 8
+                      total_results:
+                        type: number
+                        example: 176
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        reviews:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              badges:
+                                type: object
+                                properties:
+                                  is_staff_reviewer:
+                                    type: boolean
+                                    example: false
+                                  is_verified_buyer:
+                                    type: boolean
+                                    example: false
+                                  is_verified_reviewer:
+                                    type: boolean
+                                    example: false
+                              details:
+                                type: object
+                                properties:
+                                  bottom_line:
+                                    type: string
+                                    example: "Yes"
+                                  comments:
+                                    type: string
+                                    example: test review
+                                  created_date:
+                                    type: number
+                                    example: 1621881061596
+                                  headline:
+                                    type: string
+                                    example: This is the best hat ever TEST
+                                  locale:
+                                    type: string
+                                    example: en_US
+                                  location:
+                                    type: string
+                                    example: test
+                                  merchant_response:
+                                    type: string
+                                    example: Thanks so much for your review. Stay warm!
+                                  merchant_response_date:
+                                    type: number
+                                    example: 1602879290367
+                                  nickname:
+                                    type: string
+                                    example: test
+                                  product_page_id:
+                                    type: string
+                                    example: "7772289611"
+                                  properties:
+                                    type: array
+                                    items:
+                                      type: object
+                                      properties:
+                                        key:
+                                          type: string
+                                          example: cons
+                                        label:
+                                          type: string
+                                          example: Cons
+                                        type:
+                                          type: string
+                                          example: tag
+                                        value:
+                                          type: array
+                                          items:
+                                            type: string
+                                            example: Not Warm Enough
+                                          example:
+                                            - Not Warm Enough
+                                            - Poor Fit
+                                    example:
+                                      - key: cons
+                                        label: Cons
+                                        type: tag
+                                        value:
+                                          - Not Warm Enough
+                                          - Poor Fit
+                                      - key: pros
+                                        label: Pros
+                                        type: tag
+                                        value:
+                                          - Attractive
+                                          - Lightweight
+                                      - key: sizing
+                                        label: Sizing
+                                        type: tag
+                                        value:
+                                          - Feels true to size
+                                      - key: bestuses
+                                        label: Best Uses
+                                        type: tag
+                                        value:
+                                          - Travel
+                                          - Winter Sports
+                                      - key: describeyourself
+                                        label: Describe Yourself
+                                        type: tag
+                                        value:
+                                          - High-end shopper
+                                          - Practical
+                                  updated_date:
+                                    type: number
+                                    example: 1621881202447
+                              internal_review_id:
+                                type: number
+                                example: 264778501
+                              legacy_id:
+                                type: number
+                                example: 264778501
+                              media:
+                                type: array
+                                items: {}
+                                example: []
+                              metrics:
+                                type: object
+                                properties:
+                                  helpful_score:
+                                    type: number
+                                    example: 938
+                                  helpful_votes:
+                                    type: number
+                                    example: 0
+                                  not_helpful_votes:
+                                    type: number
+                                    example: 0
+                                  rating:
+                                    type: number
+                                    example: 4
+                              review_id:
+                                type: number
+                                example: 345742364
+                              ugc_id:
+                                type: number
+                                example: 345742364
+                          example:
+                            - badges:
+                                is_staff_reviewer: false
+                                is_verified_buyer: false
+                                is_verified_reviewer: false
+                              details:
+                                comments: test review
+                                created_date: 1621881061596
+                                headline: This is the best hat ever TEST
+                                locale: en_US
+                                location: test
+                                nickname: test
+                                product_page_id: "7772289611"
+                                properties:
+                                  - key: cons
+                                    label: Cons
+                                    type: tag
+                                    value:
+                                      - Not Warm Enough
+                                      - Poor Fit
+                                  - key: pros
+                                    label: Pros
+                                    type: tag
+                                    value:
+                                      - Attractive
+                                      - Lightweight
+                                  - key: sizing
+                                    label: Sizing
+                                    type: tag
+                                    value:
+                                      - Feels true to size
+                                  - key: bestuses
+                                    label: Best Uses
+                                    type: tag
+                                    value:
+                                      - Travel
+                                      - Winter Sports
+                                  - key: describeyourself
+                                    label: Describe Yourself
+                                    type: tag
+                                    value:
+                                      - High-end shopper
+                                      - Practical
+                                updated_date: 1621881202447
+                              internal_review_id: 264778501
+                              legacy_id: 264778501
+                              media: []
+                              metrics:
+                                helpful_score: 938
+                                helpful_votes: 0
+                                not_helpful_votes: 0
+                                rating: 4
+                              review_id: 345742364
+                              ugc_id: 345742364
+                            - badges:
+                                is_staff_reviewer: true
+                                is_verified_buyer: false
+                                is_verified_reviewer: false
+                              details:
+                                bottom_line: "Yes"
+                                comments: This backpack is fashionable and lightweight. Perfect for commuting. I do wish it was a bit more durable though as it is starting to fray at the seam a bit.
+                                created_date: 1619023720156
+                                headline: I love this backpack
+                                locale: en_US
+                                location: USA
+                                nickname: Tony the Tiger
+                                product_page_id: "4422688407665"
+                                properties: []
+                                updated_date: 1619185113097
+                              internal_review_id: 261836989
+                              legacy_id: 261836989
+                              media: []
+                              metrics:
+                                helpful_score: 1469
+                                helpful_votes: 0
+                                not_helpful_votes: 0
+                                rating: 4
+                              review_id: 342274062
+                              ugc_id: 342274062
+                            - badges:
+                                is_staff_reviewer: false
+                                is_verified_buyer: false
+                                is_verified_reviewer: false
+                              details:
+                                comments: "The largest size was still a little too tight. I wish this had a wider size range because it's a cute jacket otherwise."
+                                created_date: 1617227373265
+                                headline: I wish it came in a larger size
+                                locale: en_US
+                                location: Chicago
+                                nickname: JKL
+                                product_page_id: "7751057291"
+                                properties:
+                                  - key: sizing
+                                    label: Sizing
+                                    type: tag
+                                    value:
+                                      - Feels too small
+                                  - key: sleevelength
+                                    label: Sleeve Length
+                                    type: tag
+                                    value:
+                                      - Feels true to length
+                                updated_date: 1621255993912
+                              internal_review_id: 259868826
+                              legacy_id: 259868826
+                              media: []
+                              metrics:
+                                helpful_score: 1505
+                                helpful_votes: 7
+                                not_helpful_votes: 1
+                                rating: 2
+                              review_id: 340000068
+                              ugc_id: 340000068
+                            - badges:
+                                is_staff_reviewer: true
+                                is_verified_buyer: false
+                                is_verified_reviewer: false
+                              details:
+                                comments: These are delicious and super smooth. The ganache is rich and not too sweet.
+                                created_date: 1617225869200
+                                headline: Smooth as butter
+                                locale: en_US
+                                location: Chicago
+                                nickname: KL
+                                product_page_id: "7799392523"
+                                properties: []
+                                updated_date: 1618255973688
+                              internal_review_id: 259868318
+                              legacy_id: 259868318
+                              media: []
+                              metrics:
+                                helpful_score: 1260
+                                helpful_votes: 1
+                                not_helpful_votes: 0
+                                rating: 5
+                              review_id: 339999291
+                              ugc_id: 339999291
+                            - badges:
+                                is_staff_reviewer: true
+                                is_verified_buyer: false
+                                is_verified_reviewer: false
+                              details:
+                                comments: These are delicious and super smooth. The ganache is rich and not too sweet.
+                                created_date: 1617225869200
+                                headline: Smooth as butter
+                                locale: en_US
+                                location: Chicago
+                                nickname: KL
+                                product_page_id: hollywood-blushing-baked-blush_trio
+                                properties: []
+                                updated_date: 1618255973688
+                              internal_review_id: 259868318
+                              legacy_id: 259868318
+                              media: []
+                              metrics:
+                                helpful_score: 1260
+                                helpful_votes: 1
+                                not_helpful_votes: 0
+                                rating: 5
+                              review_id: 339999291
+                              ugc_id: 339999291
+                            - badges:
+                                is_staff_reviewer: true
+                                is_verified_buyer: false
+                                is_verified_reviewer: false
+                              details:
+                                comments: test
+                                created_date: 1617222020969
+                                headline: test
+                                locale: en_US
+                                location: Undisclosed
+                                nickname: anonymous
+                                product_page_id: "7772289611"
+                                properties:
+                                  - key: sizing
+                                    label: Sizing
+                                    type: tag
+                                    value:
+                                      - Feels half size too big
+                                  - key: bestuses
+                                    label: Best Uses
+                                    type: tag
+                                    value:
+                                      - Extreme Cold
+                                      - Sports
+                                updated_date: 1618253225337
+                              internal_review_id: 339996906
+                              legacy_id: 339996906
+                              media: []
+                              metrics:
+                                helpful_score: 0
+                                helpful_votes: 0
+                                not_helpful_votes: 0
+                                rating: 4
+                              review_id: 339996906
+                              ugc_id: 339996906
+                            - badges:
+                                is_staff_reviewer: false
+                                is_verified_buyer: false
+                                is_verified_reviewer: false
+                              details:
+                                comments: this is great lightweight jacket
+                                created_date: 1617156911201
+                                headline: love it
+                                locale: en_US
+                                location: chicago
+                                nickname: cristian
+                                product_page_id: "7751057291"
+                                properties: []
+                                updated_date: 1621423711478
+                              internal_review_id: 259750938
+                              legacy_id: 259750938
+                              media: []
+                              metrics:
+                                helpful_score: 1008
+                                helpful_votes: 2
+                                not_helpful_votes: 0
+                                rating: 4
+                              review_id: 339869703
+                              ugc_id: 339869703
+                            - badges:
+                                is_staff_reviewer: true
+                                is_verified_buyer: false
+                                is_verified_reviewer: false
+                              details:
+                                comments: THis is my favorite hat
+                                created_date: 1616686361495
+                                headline: Love it
+                                locale: en_US
+                                location: Undisclosed
+                                nickname: anonymous
+                                product_page_id: "7772289611"
+                                properties:
+                                  - key: sizing
+                                    label: Sizing
+                                    type: tag
+                                    value:
+                                      - Feels half size too small
+                                  - key: bestuses
+                                    label: Best Uses
+                                    type: tag
+                                    value:
+                                      - Sports
+                                updated_date: 1617045037535
+                              internal_review_id: 339431242
+                              legacy_id: 339431242
+                              media: []
+                              metrics:
+                                helpful_score: 0
+                                helpful_votes: 0
+                                not_helpful_votes: 0
+                                rating: 5
+                              review_id: 339431242
+                              ugc_id: 339431242
+                            - badges:
+                                is_staff_reviewer: false
+                                is_verified_buyer: false
+                                is_verified_reviewer: false
+                              details:
+                                comments: These are really great headphones!
+                                created_date: 1615567603316
+                                headline: Great Headphones!
+                                locale: en_US
+                                location: "Chicago, IL"
+                                nickname: Niel
+                                product_page_id: "7799373259"
+                                properties:
+                                  - key: cons
+                                    label: Cons
+                                    type: tag
+                                    value:
+                                      - Poor Value
+                                  - key: pros
+                                    label: Pros
+                                    type: tag
+                                    value:
+                                      - Durable
+                                  - key: bestuses
+                                    label: Best Uses
+                                    type: tag
+                                    value:
+                                      - Travel
+                                updated_date: 1615823882645
+                              internal_review_id: 255247390
+                              legacy_id: 255247390
+                              media: []
+                              metrics:
+                                helpful_score: 1170
+                                helpful_votes: 0
+                                not_helpful_votes: 0
+                                rating: 5
+                              review_id: 335062782
+                              ugc_id: 335062782
+                            - badges:
+                                is_staff_reviewer: true
+                                is_verified_buyer: false
+                                is_verified_reviewer: false
+                              details:
+                                comments: "I hate this hat.  The wool is really itchy. DON'T BUY IT"
+                                created_date: 1613575291230
+                                headline: Hate it!
+                                locale: en_US
+                                location: Undisclosed
+                                nickname: anonymous
+                                product_page_id: "7772289611"
+                                properties:
+                                  - key: sizing
+                                    label: Sizing
+                                    type: tag
+                                    value:
+                                      - Feels true to size
+                                  - key: bestuses
+                                    label: Best Uses
+                                    type: tag
+                                    value:
+                                      - Sports
+                                updated_date: 1615232441787
+                              internal_review_id: 330194603
+                              legacy_id: 330194603
+                              media: []
+                              metrics:
+                                helpful_score: 0
+                                helpful_votes: 0
+                                not_helpful_votes: 0
+                                rating: 1
+                              review_id: 330194603
+                              ugc_id: 330194603
+                            - badges:
+                                is_staff_reviewer: true
+                                is_verified_buyer: false
+                                is_verified_reviewer: false
+                              details:
+                                comments: Love this product
+                                created_date: 1606161321973
+                                headline: Great set!
+                                locale: en_US
+                                location: Undisclosed
+                                nickname: anonymous
+                                product_page_id: "7772289611"
+                                properties:
+                                  - key: sizing
+                                    label: Sizing
+                                    type: tag
+                                    value:
+                                      - Feels half size too small
+                                  - key: bestuses
+                                    label: Best Uses
+                                    type: tag
+                                    value:
+                                      - Sports
+                                updated_date: 1608750817271
+                              internal_review_id: 317460820
+                              legacy_id: 317460820
+                              media: []
+                              metrics:
+                                helpful_score: 0
+                                helpful_votes: 0
+                                not_helpful_votes: 0
+                                rating: 5
+                              review_id: 317460820
+                              ugc_id: 317460820
+                            - badges:
+                                is_staff_reviewer: true
+                                is_verified_buyer: false
+                                is_verified_reviewer: false
+                              details:
+                                comments: asdfdsafd
+                                created_date: 1603913381649
+                                headline: afdsfasd
+                                locale: en_US
+                                location: Undisclosed
+                                nickname: anonymous
+                                product_page_id: "7772289611"
+                                properties: []
+                                updated_date: 1604503895797
+                              internal_review_id: 310061548
+                              legacy_id: 310061548
+                              media: []
+                              metrics:
+                                helpful_score: 0
+                                helpful_votes: 0
+                                not_helpful_votes: 0
+                                rating: 4
+                              review_id: 310061548
+                              ugc_id: 310061548
+                            - badges:
+                                is_staff_reviewer: true
+                                is_verified_buyer: false
+                                is_verified_reviewer: false
+                              details:
+                                bottom_line: "Yes"
+                                comments: "I live in Chicago and it's nice to have a jacket that takes me from fall to spring."
+                                created_date: 1602879220360
+                                headline: Great year round jacket
+                                locale: en_US
+                                location: Chicago
+                                merchant_response: Thanks so much for your review. Stay warm!
+                                merchant_response_date: 1602879290367
+                                nickname: SP
+                                product_page_id: "7751057291"
+                                properties:
+                                  - key: sizing
+                                    label: Sizing
+                                    type: tag
+                                    value:
+                                      - Feels true to size
+                                  - key: sleevelength
+                                    label: Sleeve Length
+                                    type: tag
+                                    value:
+                                      - Feels true to length
+                                updated_date: 1620673013658
+                              internal_review_id: 230609844
+                              legacy_id: 230609844
+                              media: []
+                              metrics:
+                                helpful_score: 1400
+                                helpful_votes: 7
+                                not_helpful_votes: 2
+                                rating: 5
+                              review_id: 308147220
+                              ugc_id: 308147220
+                            - badges:
+                                is_staff_reviewer: false
+                                is_verified_buyer: false
+                                is_verified_reviewer: false
+                              details:
+                                comments: I keep this in my purse at all times - this is my favorite chapstick.
+                                created_date: 1601392852595
+                                headline: My Fav Chapstick
+                                locale: en_US
+                                location: New York
+                                nickname: Rachel
+                                product_page_id: "7772277707"
+                                properties: []
+                                updated_date: 1619015926779
+                              internal_review_id: 224359818
+                              legacy_id: 224359818
+                              media: []
+                              metrics:
+                                helpful_score: 1232
+                                helpful_votes: 1
+                                not_helpful_votes: 0
+                                rating: 5
+                              review_id: 301659457
+                              ugc_id: 301659457
+                            - badges:
+                                is_staff_reviewer: false
+                                is_verified_buyer: false
+                                is_verified_reviewer: false
+                              details:
+                                comments: this is to test the feature that sends an email when a review is approved at l2?
+                                created_date: 1601391471504
+                                headline: approved review email testing
+                                locale: en_US
+                                location: test
+                                nickname: test
+                                product_page_id: "7772277707"
+                                properties: []
+                                updated_date: 1619092776642
+                              internal_review_id: 224359283
+                              legacy_id: 224359283
+                              media: []
+                              metrics:
+                                helpful_score: 1275
+                                helpful_votes: 1
+                                not_helpful_votes: 1
+                                rating: 4
+                              review_id: 301658726
+                              ugc_id: 301658726
+                            - badges:
+                                is_staff_reviewer: false
+                                is_verified_buyer: false
+                                is_verified_reviewer: false
+                              details:
+                                comments: These are the best headphones - the sound quality is amazing!
+                                created_date: 1601391163337
+                                headline: Amazing Sound
+                                locale: en_US
+                                location: Denver
+                                nickname: Rachel
+                                product_page_id: "7799373259"
+                                properties: []
+                                updated_date: 1604375607402
+                              internal_review_id: 224359185
+                              legacy_id: 224359185
+                              media: []
+                              metrics:
+                                helpful_score: 1196
+                                helpful_votes: 1
+                                not_helpful_votes: 0
+                                rating: 5
+                              review_id: 301658571
+                              ugc_id: 301658571
+                            - badges:
+                                is_staff_reviewer: false
+                                is_verified_buyer: false
+                                is_verified_reviewer: false
+                              details:
+                                comments: "i love this jacket, it keeps me so dry and warm!"
+                                created_date: 1601391125289
+                                headline: great jacket
+                                locale: en_US
+                                location: chicago
+                                nickname: alex the tester
+                                product_page_id: "7751057291"
+                                properties: []
+                                updated_date: 1621255980845
+                              internal_review_id: 224359171
+                              legacy_id: 224359171
+                              media: []
+                              metrics:
+                                helpful_score: 1126
+                                helpful_votes: 8
+                                not_helpful_votes: 2
+                                rating: 5
+                              review_id: 301658558
+                              ugc_id: 301658558
+                            - badges:
+                                is_staff_reviewer: true
+                                is_verified_buyer: false
+                                is_verified_reviewer: false
+                              details:
+                                comments: Love this hat!
+                                created_date: 1600981855173
+                                headline: Love it!
+                                locale: en_US
+                                location: Undisclosed
+                                nickname: anonymous
+                                product_page_id: "7772289611"
+                                properties:
+                                  - key: sizing
+                                    label: Sizing
+                                    type: tag
+                                    value:
+                                      - Feels full size too small
+                                  - key: bestuses
+                                    label: Best Uses
+                                    type: tag
+                                    value:
+                                      - Extreme Cold
+                                updated_date: 1602019980158
+                              internal_review_id: 301077681
+                              legacy_id: 301077681
+                              media: []
+                              metrics:
+                                helpful_score: 0
+                                helpful_votes: 0
+                                not_helpful_votes: 0
+                                rating: 5
+                              review_id: 301077681
+                              ugc_id: 301077681
+                            - badges:
+                                is_staff_reviewer: false
+                                is_verified_buyer: false
+                                is_verified_reviewer: false
+                              details:
+                                bottom_line: "No"
+                                comments: "Not only was my delivery late, but the delivery driver must have thrown the box onto my doorstep like a football.  The box was basically broken. Such a bad experience."
+                                created_date: 1598879030987
+                                headline: Late Delivery!
+                                locale: en_US
+                                location: "North Salem, NY"
+                                nickname: ChocoLoverDude
+                                product_page_id: "7799392523"
+                                properties:
+                                  - key: whowasthispurchasedfor
+                                    label: Who was this purchased for?
+                                    type: tag
+                                    value:
+                                      - Myself
+                                updated_date: 1617639479177
+                              internal_review_id: 221522772
+                              legacy_id: 221522772
+                              media: []
+                              metrics:
+                                helpful_score: 1489
+                                helpful_votes: 1
+                                not_helpful_votes: 1
+                                rating: 1
+                              review_id: 298406824
+                              ugc_id: 298406824
+                            - badges:
+                                is_staff_reviewer: false
+                                is_verified_buyer: false
+                                is_verified_reviewer: false
+                              details:
+                                bottom_line: "No"
+                                comments: "Not only was my delivery late, but the delivery driver must have thrown the box onto my doorstep like a football.  The box was basically broken. Such a bad experience."
+                                created_date: 1598879030987
+                                headline: Late Delivery!
+                                locale: en_US
+                                location: "North Salem, NY"
+                                nickname: ChocoLoverDude
+                                product_page_id: hollywood-blushing-baked-blush_trio
+                                properties:
+                                  - key: whowasthispurchasedfor
+                                    label: Who was this purchased for?
+                                    type: tag
+                                    value:
+                                      - Myself
+                                updated_date: 1617639479177
+                              internal_review_id: 221522772
+                              legacy_id: 221522772
+                              media: []
+                              metrics:
+                                helpful_score: 1489
+                                helpful_votes: 1
+                                not_helpful_votes: 1
+                                rating: 1
+                              review_id: 298406824
+                              ugc_id: 298406824
+                            - badges:
+                                is_staff_reviewer: false
+                                is_verified_buyer: false
+                                is_verified_reviewer: false
+                              details:
+                                comments: Great headphones
+                                created_date: 1598301886112
+                                headline: Great headphones
+                                locale: en_US
+                                location: "Chicago, IL"
+                                nickname: Niel
+                                product_page_id: "7799373259"
+                                properties: []
+                                updated_date: 1618926596841
+                              internal_review_id: 220467700
+                              legacy_id: 220467700
+                              media: []
+                              metrics:
+                                helpful_score: 806
+                                helpful_votes: 1
+                                not_helpful_votes: 0
+                                rating: 4
+                              review_id: 297266579
+                              ugc_id: 297266579
+                            - badges:
+                                is_staff_reviewer: true
+                                is_verified_buyer: false
+                                is_verified_reviewer: false
+                              details:
+                                comments: LOve it for the spring
+                                created_date: 1597691343272
+                                headline: GREAT
+                                locale: en_US
+                                location: Undisclosed
+                                nickname: anonymous
+                                product_page_id: "7751057291"
+                                properties: []
+                                updated_date: 1616780260827
+                              internal_review_id: 292339949
+                              legacy_id: 292339949
+                              media: []
+                              metrics:
+                                helpful_score: 0
+                                helpful_votes: 6
+                                not_helpful_votes: 1
+                                rating: 4
+                              review_id: 292339949
+                              ugc_id: 292339949
+                            - badges:
+                                is_staff_reviewer: true
+                                is_verified_buyer: false
+                                is_verified_reviewer: false
+                              details:
+                                bottom_line: "Yes"
+                                comments: So glad I found a year round weather proof jacket to hike in!
+                                created_date: 1596138494669
+                                headline: Really great fit and weatherproof!
+                                locale: en_US
+                                location: Chicago
+                                merchant_response: "Thanks so much for taking the time to provide your feedback; we're so glad you like the jacket!\n"
+                                merchant_response_date: 1596138937030
+                                nickname: SP
+                                product_page_id: "7751057291"
+                                properties:
+                                  - key: sizing
+                                    label: Sizing
+                                    type: tag
+                                    value:
+                                      - Feels true to size
+                                  - key: sleevelength
+                                    label: Sleeve Length
+                                    type: tag
+                                    value:
+                                      - Feels true to length
+                                updated_date: 1610643975862
+                              internal_review_id: 208829454
+                              legacy_id: 208829454
+                              media: []
+                              metrics:
+                                helpful_score: 1311
+                                helpful_votes: 6
+                                not_helpful_votes: 1
+                                rating: 5
+                              review_id: 285216619
+                              ugc_id: 285216619
+                            - badges:
+                                is_staff_reviewer: true
+                                is_verified_buyer: false
+                                is_verified_reviewer: false
+                              details:
+                                bottom_line: "Yes"
+                                comments: Love this hat! Matches my winter coat so well!
+                                created_date: 1596127018842
+                                headline: Very fun and cute hat!
+                                locale: en_US
+                                location: Chicago
+                                merchant_response: So glad you like it; really appreciate you taking the time to leave us a review!
+                                merchant_response_date: 1596127308237
+                                nickname: SP
+                                product_page_id: "7772289611"
+                                properties:
+                                  - key: cons
+                                    label: Cons
+                                    type: tag
+                                    value:
+                                      - Not Warm Enough
+                                  - key: pros
+                                    label: Pros
+                                    type: tag
+                                    value:
+                                      - Attractive
+                                  - key: sizing
+                                    label: Sizing
+                                    type: tag
+                                    value:
+                                      - Feels true to size
+                                updated_date: 1596148307349
+                              internal_review_id: 208822780
+                              legacy_id: 208822780
+                              media: []
+                              metrics:
+                                helpful_score: 1258
+                                helpful_votes: 0
+                                not_helpful_votes: 0
+                                rating: 5
+                              review_id: 285207808
+                              ugc_id: 285207808
+                            - badges:
+                                is_staff_reviewer: false
+                                is_verified_buyer: false
+                                is_verified_reviewer: false
+                              details:
+                                bottom_line: "Yes"
+                                comments: Finally a jacket that I can wear year round while hiking!
+                                created_date: 1596051208153
+                                headline: Great weatherproof jacket!
+                                locale: en_US
+                                location: Chicago
+                                merchant_response: "We're so glad you like it - as a heads up a new color is..."
+                                merchant_response_date: 1596051504302
+                                nickname: SP
+                                product_page_id: "7751057291"
+                                properties:
+                                  - key: cons
+                                    label: Cons
+                                    type: tag
+                                    value:
+                                      - Wrinkle Easily
+                                  - key: pros
+                                    label: Pros
+                                    type: tag
+                                    value:
+                                      - Comfortable
+                                      - Washes Well
+                                  - key: sizing
+                                    label: Sizing
+                                    type: tag
+                                    value:
+                                      - Feels true to size
+                                  - key: sleevelength
+                                    label: Sleeve Length
+                                    type: tag
+                                    value:
+                                      - Feels true to length
+                                  - key: describeyourself
+                                    label: Describe Yourself
+                                    type: tag
+                                    value:
+                                      - Casual Dresser
+                                updated_date: 1616007648352
+                              internal_review_id: 208804271
+                              legacy_id: 208804271
+                              media: []
+                              metrics:
+                                helpful_score: 1379
+                                helpful_votes: 5
+                                not_helpful_votes: 0
+                                rating: 5
+                              review_id: 285180531
+                              ugc_id: 285180531
+                    example:
+                      - reviews:
+                          - badges:
+                              is_staff_reviewer: false
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: test review
+                              created_date: 1621881061596
+                              headline: This is the best hat ever TEST
+                              locale: en_US
+                              location: test
+                              nickname: test
+                              product_page_id: "7772289611"
+                              properties:
+                                - key: cons
+                                  label: Cons
+                                  type: tag
+                                  value:
+                                    - Not Warm Enough
+                                    - Poor Fit
+                                - key: pros
+                                  label: Pros
+                                  type: tag
+                                  value:
+                                    - Attractive
+                                    - Lightweight
+                                - key: sizing
+                                  label: Sizing
+                                  type: tag
+                                  value:
+                                    - Feels true to size
+                                - key: bestuses
+                                  label: Best Uses
+                                  type: tag
+                                  value:
+                                    - Travel
+                                    - Winter Sports
+                                - key: describeyourself
+                                  label: Describe Yourself
+                                  type: tag
+                                  value:
+                                    - High-end shopper
+                                    - Practical
+                              updated_date: 1621881202447
+                            internal_review_id: 264778501
+                            legacy_id: 264778501
+                            media: []
+                            metrics:
+                              helpful_score: 938
+                              helpful_votes: 0
+                              not_helpful_votes: 0
+                              rating: 4
+                            review_id: 345742364
+                            ugc_id: 345742364
+                          - badges:
+                              is_staff_reviewer: true
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              bottom_line: "Yes"
+                              comments: This backpack is fashionable and lightweight. Perfect for commuting. I do wish it was a bit more durable though as it is starting to fray at the seam a bit.
+                              created_date: 1619023720156
+                              headline: I love this backpack
+                              locale: en_US
+                              location: USA
+                              nickname: Tony the Tiger
+                              product_page_id: "4422688407665"
+                              properties: []
+                              updated_date: 1619185113097
+                            internal_review_id: 261836989
+                            legacy_id: 261836989
+                            media: []
+                            metrics:
+                              helpful_score: 1469
+                              helpful_votes: 0
+                              not_helpful_votes: 0
+                              rating: 4
+                            review_id: 342274062
+                            ugc_id: 342274062
+                          - badges:
+                              is_staff_reviewer: false
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: "The largest size was still a little too tight. I wish this had a wider size range because it's a cute jacket otherwise."
+                              created_date: 1617227373265
+                              headline: I wish it came in a larger size
+                              locale: en_US
+                              location: Chicago
+                              nickname: JKL
+                              product_page_id: "7751057291"
+                              properties:
+                                - key: sizing
+                                  label: Sizing
+                                  type: tag
+                                  value:
+                                    - Feels too small
+                                - key: sleevelength
+                                  label: Sleeve Length
+                                  type: tag
+                                  value:
+                                    - Feels true to length
+                              updated_date: 1621255993912
+                            internal_review_id: 259868826
+                            legacy_id: 259868826
+                            media: []
+                            metrics:
+                              helpful_score: 1505
+                              helpful_votes: 7
+                              not_helpful_votes: 1
+                              rating: 2
+                            review_id: 340000068
+                            ugc_id: 340000068
+                          - badges:
+                              is_staff_reviewer: true
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: These are delicious and super smooth. The ganache is rich and not too sweet.
+                              created_date: 1617225869200
+                              headline: Smooth as butter
+                              locale: en_US
+                              location: Chicago
+                              nickname: KL
+                              product_page_id: "7799392523"
+                              properties: []
+                              updated_date: 1618255973688
+                            internal_review_id: 259868318
+                            legacy_id: 259868318
+                            media: []
+                            metrics:
+                              helpful_score: 1260
+                              helpful_votes: 1
+                              not_helpful_votes: 0
+                              rating: 5
+                            review_id: 339999291
+                            ugc_id: 339999291
+                          - badges:
+                              is_staff_reviewer: true
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: These are delicious and super smooth. The ganache is rich and not too sweet.
+                              created_date: 1617225869200
+                              headline: Smooth as butter
+                              locale: en_US
+                              location: Chicago
+                              nickname: KL
+                              product_page_id: hollywood-blushing-baked-blush_trio
+                              properties: []
+                              updated_date: 1618255973688
+                            internal_review_id: 259868318
+                            legacy_id: 259868318
+                            media: []
+                            metrics:
+                              helpful_score: 1260
+                              helpful_votes: 1
+                              not_helpful_votes: 0
+                              rating: 5
+                            review_id: 339999291
+                            ugc_id: 339999291
+                          - badges:
+                              is_staff_reviewer: true
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: test
+                              created_date: 1617222020969
+                              headline: test
+                              locale: en_US
+                              location: Undisclosed
+                              nickname: anonymous
+                              product_page_id: "7772289611"
+                              properties:
+                                - key: sizing
+                                  label: Sizing
+                                  type: tag
+                                  value:
+                                    - Feels half size too big
+                                - key: bestuses
+                                  label: Best Uses
+                                  type: tag
+                                  value:
+                                    - Extreme Cold
+                                    - Sports
+                              updated_date: 1618253225337
+                            internal_review_id: 339996906
+                            legacy_id: 339996906
+                            media: []
+                            metrics:
+                              helpful_score: 0
+                              helpful_votes: 0
+                              not_helpful_votes: 0
+                              rating: 4
+                            review_id: 339996906
+                            ugc_id: 339996906
+                          - badges:
+                              is_staff_reviewer: false
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: this is great lightweight jacket
+                              created_date: 1617156911201
+                              headline: love it
+                              locale: en_US
+                              location: chicago
+                              nickname: cristian
+                              product_page_id: "7751057291"
+                              properties: []
+                              updated_date: 1621423711478
+                            internal_review_id: 259750938
+                            legacy_id: 259750938
+                            media: []
+                            metrics:
+                              helpful_score: 1008
+                              helpful_votes: 2
+                              not_helpful_votes: 0
+                              rating: 4
+                            review_id: 339869703
+                            ugc_id: 339869703
+                          - badges:
+                              is_staff_reviewer: true
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: THis is my favorite hat
+                              created_date: 1616686361495
+                              headline: Love it
+                              locale: en_US
+                              location: Undisclosed
+                              nickname: anonymous
+                              product_page_id: "7772289611"
+                              properties:
+                                - key: sizing
+                                  label: Sizing
+                                  type: tag
+                                  value:
+                                    - Feels half size too small
+                                - key: bestuses
+                                  label: Best Uses
+                                  type: tag
+                                  value:
+                                    - Sports
+                              updated_date: 1617045037535
+                            internal_review_id: 339431242
+                            legacy_id: 339431242
+                            media: []
+                            metrics:
+                              helpful_score: 0
+                              helpful_votes: 0
+                              not_helpful_votes: 0
+                              rating: 5
+                            review_id: 339431242
+                            ugc_id: 339431242
+                          - badges:
+                              is_staff_reviewer: false
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: These are really great headphones!
+                              created_date: 1615567603316
+                              headline: Great Headphones!
+                              locale: en_US
+                              location: "Chicago, IL"
+                              nickname: Niel
+                              product_page_id: "7799373259"
+                              properties:
+                                - key: cons
+                                  label: Cons
+                                  type: tag
+                                  value:
+                                    - Poor Value
+                                - key: pros
+                                  label: Pros
+                                  type: tag
+                                  value:
+                                    - Durable
+                                - key: bestuses
+                                  label: Best Uses
+                                  type: tag
+                                  value:
+                                    - Travel
+                              updated_date: 1615823882645
+                            internal_review_id: 255247390
+                            legacy_id: 255247390
+                            media: []
+                            metrics:
+                              helpful_score: 1170
+                              helpful_votes: 0
+                              not_helpful_votes: 0
+                              rating: 5
+                            review_id: 335062782
+                            ugc_id: 335062782
+                          - badges:
+                              is_staff_reviewer: true
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: "I hate this hat.  The wool is really itchy. DON'T BUY IT"
+                              created_date: 1613575291230
+                              headline: Hate it!
+                              locale: en_US
+                              location: Undisclosed
+                              nickname: anonymous
+                              product_page_id: "7772289611"
+                              properties:
+                                - key: sizing
+                                  label: Sizing
+                                  type: tag
+                                  value:
+                                    - Feels true to size
+                                - key: bestuses
+                                  label: Best Uses
+                                  type: tag
+                                  value:
+                                    - Sports
+                              updated_date: 1615232441787
+                            internal_review_id: 330194603
+                            legacy_id: 330194603
+                            media: []
+                            metrics:
+                              helpful_score: 0
+                              helpful_votes: 0
+                              not_helpful_votes: 0
+                              rating: 1
+                            review_id: 330194603
+                            ugc_id: 330194603
+                          - badges:
+                              is_staff_reviewer: true
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: Love this product
+                              created_date: 1606161321973
+                              headline: Great set!
+                              locale: en_US
+                              location: Undisclosed
+                              nickname: anonymous
+                              product_page_id: "7772289611"
+                              properties:
+                                - key: sizing
+                                  label: Sizing
+                                  type: tag
+                                  value:
+                                    - Feels half size too small
+                                - key: bestuses
+                                  label: Best Uses
+                                  type: tag
+                                  value:
+                                    - Sports
+                              updated_date: 1608750817271
+                            internal_review_id: 317460820
+                            legacy_id: 317460820
+                            media: []
+                            metrics:
+                              helpful_score: 0
+                              helpful_votes: 0
+                              not_helpful_votes: 0
+                              rating: 5
+                            review_id: 317460820
+                            ugc_id: 317460820
+                          - badges:
+                              is_staff_reviewer: true
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: asdfdsafd
+                              created_date: 1603913381649
+                              headline: afdsfasd
+                              locale: en_US
+                              location: Undisclosed
+                              nickname: anonymous
+                              product_page_id: "7772289611"
+                              properties: []
+                              updated_date: 1604503895797
+                            internal_review_id: 310061548
+                            legacy_id: 310061548
+                            media: []
+                            metrics:
+                              helpful_score: 0
+                              helpful_votes: 0
+                              not_helpful_votes: 0
+                              rating: 4
+                            review_id: 310061548
+                            ugc_id: 310061548
+                          - badges:
+                              is_staff_reviewer: true
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              bottom_line: "Yes"
+                              comments: "I live in Chicago and it's nice to have a jacket that takes me from fall to spring."
+                              created_date: 1602879220360
+                              headline: Great year round jacket
+                              locale: en_US
+                              location: Chicago
+                              merchant_response: Thanks so much for your review. Stay warm!
+                              merchant_response_date: 1602879290367
+                              nickname: SP
+                              product_page_id: "7751057291"
+                              properties:
+                                - key: sizing
+                                  label: Sizing
+                                  type: tag
+                                  value:
+                                    - Feels true to size
+                                - key: sleevelength
+                                  label: Sleeve Length
+                                  type: tag
+                                  value:
+                                    - Feels true to length
+                              updated_date: 1620673013658
+                            internal_review_id: 230609844
+                            legacy_id: 230609844
+                            media: []
+                            metrics:
+                              helpful_score: 1400
+                              helpful_votes: 7
+                              not_helpful_votes: 2
+                              rating: 5
+                            review_id: 308147220
+                            ugc_id: 308147220
+                          - badges:
+                              is_staff_reviewer: false
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: I keep this in my purse at all times - this is my favorite chapstick.
+                              created_date: 1601392852595
+                              headline: My Fav Chapstick
+                              locale: en_US
+                              location: New York
+                              nickname: Rachel
+                              product_page_id: "7772277707"
+                              properties: []
+                              updated_date: 1619015926779
+                            internal_review_id: 224359818
+                            legacy_id: 224359818
+                            media: []
+                            metrics:
+                              helpful_score: 1232
+                              helpful_votes: 1
+                              not_helpful_votes: 0
+                              rating: 5
+                            review_id: 301659457
+                            ugc_id: 301659457
+                          - badges:
+                              is_staff_reviewer: false
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: this is to test the feature that sends an email when a review is approved at l2?
+                              created_date: 1601391471504
+                              headline: approved review email testing
+                              locale: en_US
+                              location: test
+                              nickname: test
+                              product_page_id: "7772277707"
+                              properties: []
+                              updated_date: 1619092776642
+                            internal_review_id: 224359283
+                            legacy_id: 224359283
+                            media: []
+                            metrics:
+                              helpful_score: 1275
+                              helpful_votes: 1
+                              not_helpful_votes: 1
+                              rating: 4
+                            review_id: 301658726
+                            ugc_id: 301658726
+                          - badges:
+                              is_staff_reviewer: false
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: These are the best headphones - the sound quality is amazing!
+                              created_date: 1601391163337
+                              headline: Amazing Sound
+                              locale: en_US
+                              location: Denver
+                              nickname: Rachel
+                              product_page_id: "7799373259"
+                              properties: []
+                              updated_date: 1604375607402
+                            internal_review_id: 224359185
+                            legacy_id: 224359185
+                            media: []
+                            metrics:
+                              helpful_score: 1196
+                              helpful_votes: 1
+                              not_helpful_votes: 0
+                              rating: 5
+                            review_id: 301658571
+                            ugc_id: 301658571
+                          - badges:
+                              is_staff_reviewer: false
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: "i love this jacket, it keeps me so dry and warm!"
+                              created_date: 1601391125289
+                              headline: great jacket
+                              locale: en_US
+                              location: chicago
+                              nickname: alex the tester
+                              product_page_id: "7751057291"
+                              properties: []
+                              updated_date: 1621255980845
+                            internal_review_id: 224359171
+                            legacy_id: 224359171
+                            media: []
+                            metrics:
+                              helpful_score: 1126
+                              helpful_votes: 8
+                              not_helpful_votes: 2
+                              rating: 5
+                            review_id: 301658558
+                            ugc_id: 301658558
+                          - badges:
+                              is_staff_reviewer: true
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: Love this hat!
+                              created_date: 1600981855173
+                              headline: Love it!
+                              locale: en_US
+                              location: Undisclosed
+                              nickname: anonymous
+                              product_page_id: "7772289611"
+                              properties:
+                                - key: sizing
+                                  label: Sizing
+                                  type: tag
+                                  value:
+                                    - Feels full size too small
+                                - key: bestuses
+                                  label: Best Uses
+                                  type: tag
+                                  value:
+                                    - Extreme Cold
+                              updated_date: 1602019980158
+                            internal_review_id: 301077681
+                            legacy_id: 301077681
+                            media: []
+                            metrics:
+                              helpful_score: 0
+                              helpful_votes: 0
+                              not_helpful_votes: 0
+                              rating: 5
+                            review_id: 301077681
+                            ugc_id: 301077681
+                          - badges:
+                              is_staff_reviewer: false
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              bottom_line: "No"
+                              comments: "Not only was my delivery late, but the delivery driver must have thrown the box onto my doorstep like a football.  The box was basically broken. Such a bad experience."
+                              created_date: 1598879030987
+                              headline: Late Delivery!
+                              locale: en_US
+                              location: "North Salem, NY"
+                              nickname: ChocoLoverDude
+                              product_page_id: "7799392523"
+                              properties:
+                                - key: whowasthispurchasedfor
+                                  label: Who was this purchased for?
+                                  type: tag
+                                  value:
+                                    - Myself
+                              updated_date: 1617639479177
+                            internal_review_id: 221522772
+                            legacy_id: 221522772
+                            media: []
+                            metrics:
+                              helpful_score: 1489
+                              helpful_votes: 1
+                              not_helpful_votes: 1
+                              rating: 1
+                            review_id: 298406824
+                            ugc_id: 298406824
+                          - badges:
+                              is_staff_reviewer: false
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              bottom_line: "No"
+                              comments: "Not only was my delivery late, but the delivery driver must have thrown the box onto my doorstep like a football.  The box was basically broken. Such a bad experience."
+                              created_date: 1598879030987
+                              headline: Late Delivery!
+                              locale: en_US
+                              location: "North Salem, NY"
+                              nickname: ChocoLoverDude
+                              product_page_id: hollywood-blushing-baked-blush_trio
+                              properties:
+                                - key: whowasthispurchasedfor
+                                  label: Who was this purchased for?
+                                  type: tag
+                                  value:
+                                    - Myself
+                              updated_date: 1617639479177
+                            internal_review_id: 221522772
+                            legacy_id: 221522772
+                            media: []
+                            metrics:
+                              helpful_score: 1489
+                              helpful_votes: 1
+                              not_helpful_votes: 1
+                              rating: 1
+                            review_id: 298406824
+                            ugc_id: 298406824
+                          - badges:
+                              is_staff_reviewer: false
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: Great headphones
+                              created_date: 1598301886112
+                              headline: Great headphones
+                              locale: en_US
+                              location: "Chicago, IL"
+                              nickname: Niel
+                              product_page_id: "7799373259"
+                              properties: []
+                              updated_date: 1618926596841
+                            internal_review_id: 220467700
+                            legacy_id: 220467700
+                            media: []
+                            metrics:
+                              helpful_score: 806
+                              helpful_votes: 1
+                              not_helpful_votes: 0
+                              rating: 4
+                            review_id: 297266579
+                            ugc_id: 297266579
+                          - badges:
+                              is_staff_reviewer: true
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: LOve it for the spring
+                              created_date: 1597691343272
+                              headline: GREAT
+                              locale: en_US
+                              location: Undisclosed
+                              nickname: anonymous
+                              product_page_id: "7751057291"
+                              properties: []
+                              updated_date: 1616780260827
+                            internal_review_id: 292339949
+                            legacy_id: 292339949
+                            media: []
+                            metrics:
+                              helpful_score: 0
+                              helpful_votes: 6
+                              not_helpful_votes: 1
+                              rating: 4
+                            review_id: 292339949
+                            ugc_id: 292339949
+                          - badges:
+                              is_staff_reviewer: true
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              bottom_line: "Yes"
+                              comments: So glad I found a year round weather proof jacket to hike in!
+                              created_date: 1596138494669
+                              headline: Really great fit and weatherproof!
+                              locale: en_US
+                              location: Chicago
+                              merchant_response: "Thanks so much for taking the time to provide your feedback; we're so glad you like the jacket!\n"
+                              merchant_response_date: 1596138937030
+                              nickname: SP
+                              product_page_id: "7751057291"
+                              properties:
+                                - key: sizing
+                                  label: Sizing
+                                  type: tag
+                                  value:
+                                    - Feels true to size
+                                - key: sleevelength
+                                  label: Sleeve Length
+                                  type: tag
+                                  value:
+                                    - Feels true to length
+                              updated_date: 1610643975862
+                            internal_review_id: 208829454
+                            legacy_id: 208829454
+                            media: []
+                            metrics:
+                              helpful_score: 1311
+                              helpful_votes: 6
+                              not_helpful_votes: 1
+                              rating: 5
+                            review_id: 285216619
+                            ugc_id: 285216619
+                          - badges:
+                              is_staff_reviewer: true
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              bottom_line: "Yes"
+                              comments: Love this hat! Matches my winter coat so well!
+                              created_date: 1596127018842
+                              headline: Very fun and cute hat!
+                              locale: en_US
+                              location: Chicago
+                              merchant_response: So glad you like it; really appreciate you taking the time to leave us a review!
+                              merchant_response_date: 1596127308237
+                              nickname: SP
+                              product_page_id: "7772289611"
+                              properties:
+                                - key: cons
+                                  label: Cons
+                                  type: tag
+                                  value:
+                                    - Not Warm Enough
+                                - key: pros
+                                  label: Pros
+                                  type: tag
+                                  value:
+                                    - Attractive
+                                - key: sizing
+                                  label: Sizing
+                                  type: tag
+                                  value:
+                                    - Feels true to size
+                              updated_date: 1596148307349
+                            internal_review_id: 208822780
+                            legacy_id: 208822780
+                            media: []
+                            metrics:
+                              helpful_score: 1258
+                              helpful_votes: 0
+                              not_helpful_votes: 0
+                              rating: 5
+                            review_id: 285207808
+                            ugc_id: 285207808
+                          - badges:
+                              is_staff_reviewer: false
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              bottom_line: "Yes"
+                              comments: Finally a jacket that I can wear year round while hiking!
+                              created_date: 1596051208153
+                              headline: Great weatherproof jacket!
+                              locale: en_US
+                              location: Chicago
+                              merchant_response: "We're so glad you like it - as a heads up a new color is..."
+                              merchant_response_date: 1596051504302
+                              nickname: SP
+                              product_page_id: "7751057291"
+                              properties:
+                                - key: cons
+                                  label: Cons
+                                  type: tag
+                                  value:
+                                    - Wrinkle Easily
+                                - key: pros
+                                  label: Pros
+                                  type: tag
+                                  value:
+                                    - Comfortable
+                                    - Washes Well
+                                - key: sizing
+                                  label: Sizing
+                                  type: tag
+                                  value:
+                                    - Feels true to size
+                                - key: sleevelength
+                                  label: Sleeve Length
+                                  type: tag
+                                  value:
+                                    - Feels true to length
+                                - key: describeyourself
+                                  label: Describe Yourself
+                                  type: tag
+                                  value:
+                                    - Casual Dresser
+                              updated_date: 1616007648352
+                            internal_review_id: 208804271
+                            legacy_id: 208804271
+                            media: []
+                            metrics:
+                              helpful_score: 1379
+                              helpful_votes: 5
+                              not_helpful_votes: 0
+                              rating: 5
+                            review_id: 285180531
+                            ugc_id: 285180531
+              examples:
+                All Reviews for a given ProductId:
+                  value:
+                    name: review
+                    paging:
+                      next_page_url: /m/512774/reviews?scroll=DXF1ZXJ5QW5kRmV0Y2gBAAAAAQbseNkWSl93cDFCaDNUeWVJNTJGRHktZWhQQQ==
+                      page_size: 25
+                      pages_total: 8
+                      total_results: 176
+                    results:
+                      - reviews:
+                          - badges:
+                              is_staff_reviewer: false
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: test review
+                              created_date: 1621881061596
+                              headline: This is the best hat ever TEST
+                              locale: en_US
+                              location: test
+                              nickname: test
+                              product_page_id: "7772289611"
+                              properties:
+                                - key: cons
+                                  label: Cons
+                                  type: tag
+                                  value:
+                                    - Not Warm Enough
+                                    - Poor Fit
+                                - key: pros
+                                  label: Pros
+                                  type: tag
+                                  value:
+                                    - Attractive
+                                    - Lightweight
+                                - key: sizing
+                                  label: Sizing
+                                  type: tag
+                                  value:
+                                    - Feels true to size
+                                - key: bestuses
+                                  label: Best Uses
+                                  type: tag
+                                  value:
+                                    - Travel
+                                    - Winter Sports
+                                - key: describeyourself
+                                  label: Describe Yourself
+                                  type: tag
+                                  value:
+                                    - High-end shopper
+                                    - Practical
+                              updated_date: 1621881202447
+                            internal_review_id: 264778501
+                            legacy_id: 264778501
+                            media: []
+                            metrics:
+                              helpful_score: 938
+                              helpful_votes: 0
+                              not_helpful_votes: 0
+                              rating: 4
+                            review_id: 345742364
+                            ugc_id: 345742364
+                          - badges:
+                              is_staff_reviewer: true
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              bottom_line: "Yes"
+                              comments: This backpack is fashionable and lightweight. Perfect for commuting. I do wish it was a bit more durable though as it is starting to fray at the seam a bit.
+                              created_date: 1619023720156
+                              headline: I love this backpack
+                              locale: en_US
+                              location: USA
+                              nickname: Tony the Tiger
+                              product_page_id: "4422688407665"
+                              properties: []
+                              updated_date: 1619185113097
+                            internal_review_id: 261836989
+                            legacy_id: 261836989
+                            media: []
+                            metrics:
+                              helpful_score: 1469
+                              helpful_votes: 0
+                              not_helpful_votes: 0
+                              rating: 4
+                            review_id: 342274062
+                            ugc_id: 342274062
+                          - badges:
+                              is_staff_reviewer: false
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: "The largest size was still a little too tight. I wish this had a wider size range because it's a cute jacket otherwise."
+                              created_date: 1617227373265
+                              headline: I wish it came in a larger size
+                              locale: en_US
+                              location: Chicago
+                              nickname: JKL
+                              product_page_id: "7751057291"
+                              properties:
+                                - key: sizing
+                                  label: Sizing
+                                  type: tag
+                                  value:
+                                    - Feels too small
+                                - key: sleevelength
+                                  label: Sleeve Length
+                                  type: tag
+                                  value:
+                                    - Feels true to length
+                              updated_date: 1621255993912
+                            internal_review_id: 259868826
+                            legacy_id: 259868826
+                            media: []
+                            metrics:
+                              helpful_score: 1505
+                              helpful_votes: 7
+                              not_helpful_votes: 1
+                              rating: 2
+                            review_id: 340000068
+                            ugc_id: 340000068
+                          - badges:
+                              is_staff_reviewer: true
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: These are delicious and super smooth. The ganache is rich and not too sweet.
+                              created_date: 1617225869200
+                              headline: Smooth as butter
+                              locale: en_US
+                              location: Chicago
+                              nickname: KL
+                              product_page_id: "7799392523"
+                              properties: []
+                              updated_date: 1618255973688
+                            internal_review_id: 259868318
+                            legacy_id: 259868318
+                            media: []
+                            metrics:
+                              helpful_score: 1260
+                              helpful_votes: 1
+                              not_helpful_votes: 0
+                              rating: 5
+                            review_id: 339999291
+                            ugc_id: 339999291
+                          - badges:
+                              is_staff_reviewer: true
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: These are delicious and super smooth. The ganache is rich and not too sweet.
+                              created_date: 1617225869200
+                              headline: Smooth as butter
+                              locale: en_US
+                              location: Chicago
+                              nickname: KL
+                              product_page_id: hollywood-blushing-baked-blush_trio
+                              properties: []
+                              updated_date: 1618255973688
+                            internal_review_id: 259868318
+                            legacy_id: 259868318
+                            media: []
+                            metrics:
+                              helpful_score: 1260
+                              helpful_votes: 1
+                              not_helpful_votes: 0
+                              rating: 5
+                            review_id: 339999291
+                            ugc_id: 339999291
+                          - badges:
+                              is_staff_reviewer: true
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: test
+                              created_date: 1617222020969
+                              headline: test
+                              locale: en_US
+                              location: Undisclosed
+                              nickname: anonymous
+                              product_page_id: "7772289611"
+                              properties:
+                                - key: sizing
+                                  label: Sizing
+                                  type: tag
+                                  value:
+                                    - Feels half size too big
+                                - key: bestuses
+                                  label: Best Uses
+                                  type: tag
+                                  value:
+                                    - Extreme Cold
+                                    - Sports
+                              updated_date: 1618253225337
+                            internal_review_id: 339996906
+                            legacy_id: 339996906
+                            media: []
+                            metrics:
+                              helpful_score: 0
+                              helpful_votes: 0
+                              not_helpful_votes: 0
+                              rating: 4
+                            review_id: 339996906
+                            ugc_id: 339996906
+                          - badges:
+                              is_staff_reviewer: false
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: this is great lightweight jacket
+                              created_date: 1617156911201
+                              headline: love it
+                              locale: en_US
+                              location: chicago
+                              nickname: cristian
+                              product_page_id: "7751057291"
+                              properties: []
+                              updated_date: 1621423711478
+                            internal_review_id: 259750938
+                            legacy_id: 259750938
+                            media: []
+                            metrics:
+                              helpful_score: 1008
+                              helpful_votes: 2
+                              not_helpful_votes: 0
+                              rating: 4
+                            review_id: 339869703
+                            ugc_id: 339869703
+                          - badges:
+                              is_staff_reviewer: true
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: THis is my favorite hat
+                              created_date: 1616686361495
+                              headline: Love it
+                              locale: en_US
+                              location: Undisclosed
+                              nickname: anonymous
+                              product_page_id: "7772289611"
+                              properties:
+                                - key: sizing
+                                  label: Sizing
+                                  type: tag
+                                  value:
+                                    - Feels half size too small
+                                - key: bestuses
+                                  label: Best Uses
+                                  type: tag
+                                  value:
+                                    - Sports
+                              updated_date: 1617045037535
+                            internal_review_id: 339431242
+                            legacy_id: 339431242
+                            media: []
+                            metrics:
+                              helpful_score: 0
+                              helpful_votes: 0
+                              not_helpful_votes: 0
+                              rating: 5
+                            review_id: 339431242
+                            ugc_id: 339431242
+                          - badges:
+                              is_staff_reviewer: false
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: These are really great headphones!
+                              created_date: 1615567603316
+                              headline: Great Headphones!
+                              locale: en_US
+                              location: "Chicago, IL"
+                              nickname: Niel
+                              product_page_id: "7799373259"
+                              properties:
+                                - key: cons
+                                  label: Cons
+                                  type: tag
+                                  value:
+                                    - Poor Value
+                                - key: pros
+                                  label: Pros
+                                  type: tag
+                                  value:
+                                    - Durable
+                                - key: bestuses
+                                  label: Best Uses
+                                  type: tag
+                                  value:
+                                    - Travel
+                              updated_date: 1615823882645
+                            internal_review_id: 255247390
+                            legacy_id: 255247390
+                            media: []
+                            metrics:
+                              helpful_score: 1170
+                              helpful_votes: 0
+                              not_helpful_votes: 0
+                              rating: 5
+                            review_id: 335062782
+                            ugc_id: 335062782
+                          - badges:
+                              is_staff_reviewer: true
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: "I hate this hat.  The wool is really itchy. DON'T BUY IT"
+                              created_date: 1613575291230
+                              headline: Hate it!
+                              locale: en_US
+                              location: Undisclosed
+                              nickname: anonymous
+                              product_page_id: "7772289611"
+                              properties:
+                                - key: sizing
+                                  label: Sizing
+                                  type: tag
+                                  value:
+                                    - Feels true to size
+                                - key: bestuses
+                                  label: Best Uses
+                                  type: tag
+                                  value:
+                                    - Sports
+                              updated_date: 1615232441787
+                            internal_review_id: 330194603
+                            legacy_id: 330194603
+                            media: []
+                            metrics:
+                              helpful_score: 0
+                              helpful_votes: 0
+                              not_helpful_votes: 0
+                              rating: 1
+                            review_id: 330194603
+                            ugc_id: 330194603
+                          - badges:
+                              is_staff_reviewer: true
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: Love this product
+                              created_date: 1606161321973
+                              headline: Great set!
+                              locale: en_US
+                              location: Undisclosed
+                              nickname: anonymous
+                              product_page_id: "7772289611"
+                              properties:
+                                - key: sizing
+                                  label: Sizing
+                                  type: tag
+                                  value:
+                                    - Feels half size too small
+                                - key: bestuses
+                                  label: Best Uses
+                                  type: tag
+                                  value:
+                                    - Sports
+                              updated_date: 1608750817271
+                            internal_review_id: 317460820
+                            legacy_id: 317460820
+                            media: []
+                            metrics:
+                              helpful_score: 0
+                              helpful_votes: 0
+                              not_helpful_votes: 0
+                              rating: 5
+                            review_id: 317460820
+                            ugc_id: 317460820
+                          - badges:
+                              is_staff_reviewer: true
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: asdfdsafd
+                              created_date: 1603913381649
+                              headline: afdsfasd
+                              locale: en_US
+                              location: Undisclosed
+                              nickname: anonymous
+                              product_page_id: "7772289611"
+                              properties: []
+                              updated_date: 1604503895797
+                            internal_review_id: 310061548
+                            legacy_id: 310061548
+                            media: []
+                            metrics:
+                              helpful_score: 0
+                              helpful_votes: 0
+                              not_helpful_votes: 0
+                              rating: 4
+                            review_id: 310061548
+                            ugc_id: 310061548
+                          - badges:
+                              is_staff_reviewer: true
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              bottom_line: "Yes"
+                              comments: "I live in Chicago and it's nice to have a jacket that takes me from fall to spring."
+                              created_date: 1602879220360
+                              headline: Great year round jacket
+                              locale: en_US
+                              location: Chicago
+                              merchant_response: Thanks so much for your review. Stay warm!
+                              merchant_response_date: 1602879290367
+                              nickname: SP
+                              product_page_id: "7751057291"
+                              properties:
+                                - key: sizing
+                                  label: Sizing
+                                  type: tag
+                                  value:
+                                    - Feels true to size
+                                - key: sleevelength
+                                  label: Sleeve Length
+                                  type: tag
+                                  value:
+                                    - Feels true to length
+                              updated_date: 1620673013658
+                            internal_review_id: 230609844
+                            legacy_id: 230609844
+                            media: []
+                            metrics:
+                              helpful_score: 1400
+                              helpful_votes: 7
+                              not_helpful_votes: 2
+                              rating: 5
+                            review_id: 308147220
+                            ugc_id: 308147220
+                          - badges:
+                              is_staff_reviewer: false
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: I keep this in my purse at all times - this is my favorite chapstick.
+                              created_date: 1601392852595
+                              headline: My Fav Chapstick
+                              locale: en_US
+                              location: New York
+                              nickname: Rachel
+                              product_page_id: "7772277707"
+                              properties: []
+                              updated_date: 1619015926779
+                            internal_review_id: 224359818
+                            legacy_id: 224359818
+                            media: []
+                            metrics:
+                              helpful_score: 1232
+                              helpful_votes: 1
+                              not_helpful_votes: 0
+                              rating: 5
+                            review_id: 301659457
+                            ugc_id: 301659457
+                          - badges:
+                              is_staff_reviewer: false
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: this is to test the feature that sends an email when a review is approved at l2?
+                              created_date: 1601391471504
+                              headline: approved review email testing
+                              locale: en_US
+                              location: test
+                              nickname: test
+                              product_page_id: "7772277707"
+                              properties: []
+                              updated_date: 1619092776642
+                            internal_review_id: 224359283
+                            legacy_id: 224359283
+                            media: []
+                            metrics:
+                              helpful_score: 1275
+                              helpful_votes: 1
+                              not_helpful_votes: 1
+                              rating: 4
+                            review_id: 301658726
+                            ugc_id: 301658726
+                          - badges:
+                              is_staff_reviewer: false
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: These are the best headphones - the sound quality is amazing!
+                              created_date: 1601391163337
+                              headline: Amazing Sound
+                              locale: en_US
+                              location: Denver
+                              nickname: Rachel
+                              product_page_id: "7799373259"
+                              properties: []
+                              updated_date: 1604375607402
+                            internal_review_id: 224359185
+                            legacy_id: 224359185
+                            media: []
+                            metrics:
+                              helpful_score: 1196
+                              helpful_votes: 1
+                              not_helpful_votes: 0
+                              rating: 5
+                            review_id: 301658571
+                            ugc_id: 301658571
+                          - badges:
+                              is_staff_reviewer: false
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: "i love this jacket, it keeps me so dry and warm!"
+                              created_date: 1601391125289
+                              headline: great jacket
+                              locale: en_US
+                              location: chicago
+                              nickname: alex the tester
+                              product_page_id: "7751057291"
+                              properties: []
+                              updated_date: 1621255980845
+                            internal_review_id: 224359171
+                            legacy_id: 224359171
+                            media: []
+                            metrics:
+                              helpful_score: 1126
+                              helpful_votes: 8
+                              not_helpful_votes: 2
+                              rating: 5
+                            review_id: 301658558
+                            ugc_id: 301658558
+                          - badges:
+                              is_staff_reviewer: true
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: Love this hat!
+                              created_date: 1600981855173
+                              headline: Love it!
+                              locale: en_US
+                              location: Undisclosed
+                              nickname: anonymous
+                              product_page_id: "7772289611"
+                              properties:
+                                - key: sizing
+                                  label: Sizing
+                                  type: tag
+                                  value:
+                                    - Feels full size too small
+                                - key: bestuses
+                                  label: Best Uses
+                                  type: tag
+                                  value:
+                                    - Extreme Cold
+                              updated_date: 1602019980158
+                            internal_review_id: 301077681
+                            legacy_id: 301077681
+                            media: []
+                            metrics:
+                              helpful_score: 0
+                              helpful_votes: 0
+                              not_helpful_votes: 0
+                              rating: 5
+                            review_id: 301077681
+                            ugc_id: 301077681
+                          - badges:
+                              is_staff_reviewer: false
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              bottom_line: "No"
+                              comments: "Not only was my delivery late, but the delivery driver must have thrown the box onto my doorstep like a football.  The box was basically broken. Such a bad experience."
+                              created_date: 1598879030987
+                              headline: Late Delivery!
+                              locale: en_US
+                              location: "North Salem, NY"
+                              nickname: ChocoLoverDude
+                              product_page_id: "7799392523"
+                              properties:
+                                - key: whowasthispurchasedfor
+                                  label: Who was this purchased for?
+                                  type: tag
+                                  value:
+                                    - Myself
+                              updated_date: 1617639479177
+                            internal_review_id: 221522772
+                            legacy_id: 221522772
+                            media: []
+                            metrics:
+                              helpful_score: 1489
+                              helpful_votes: 1
+                              not_helpful_votes: 1
+                              rating: 1
+                            review_id: 298406824
+                            ugc_id: 298406824
+                          - badges:
+                              is_staff_reviewer: false
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              bottom_line: "No"
+                              comments: "Not only was my delivery late, but the delivery driver must have thrown the box onto my doorstep like a football.  The box was basically broken. Such a bad experience."
+                              created_date: 1598879030987
+                              headline: Late Delivery!
+                              locale: en_US
+                              location: "North Salem, NY"
+                              nickname: ChocoLoverDude
+                              product_page_id: hollywood-blushing-baked-blush_trio
+                              properties:
+                                - key: whowasthispurchasedfor
+                                  label: Who was this purchased for?
+                                  type: tag
+                                  value:
+                                    - Myself
+                              updated_date: 1617639479177
+                            internal_review_id: 221522772
+                            legacy_id: 221522772
+                            media: []
+                            metrics:
+                              helpful_score: 1489
+                              helpful_votes: 1
+                              not_helpful_votes: 1
+                              rating: 1
+                            review_id: 298406824
+                            ugc_id: 298406824
+                          - badges:
+                              is_staff_reviewer: false
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: Great headphones
+                              created_date: 1598301886112
+                              headline: Great headphones
+                              locale: en_US
+                              location: "Chicago, IL"
+                              nickname: Niel
+                              product_page_id: "7799373259"
+                              properties: []
+                              updated_date: 1618926596841
+                            internal_review_id: 220467700
+                            legacy_id: 220467700
+                            media: []
+                            metrics:
+                              helpful_score: 806
+                              helpful_votes: 1
+                              not_helpful_votes: 0
+                              rating: 4
+                            review_id: 297266579
+                            ugc_id: 297266579
+                          - badges:
+                              is_staff_reviewer: true
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              comments: LOve it for the spring
+                              created_date: 1597691343272
+                              headline: GREAT
+                              locale: en_US
+                              location: Undisclosed
+                              nickname: anonymous
+                              product_page_id: "7751057291"
+                              properties: []
+                              updated_date: 1616780260827
+                            internal_review_id: 292339949
+                            legacy_id: 292339949
+                            media: []
+                            metrics:
+                              helpful_score: 0
+                              helpful_votes: 6
+                              not_helpful_votes: 1
+                              rating: 4
+                            review_id: 292339949
+                            ugc_id: 292339949
+                          - badges:
+                              is_staff_reviewer: true
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              bottom_line: "Yes"
+                              comments: So glad I found a year round weather proof jacket to hike in!
+                              created_date: 1596138494669
+                              headline: Really great fit and weatherproof!
+                              locale: en_US
+                              location: Chicago
+                              merchant_response: "Thanks so much for taking the time to provide your feedback; we're so glad you like the jacket!\n"
+                              merchant_response_date: 1596138937030
+                              nickname: SP
+                              product_page_id: "7751057291"
+                              properties:
+                                - key: sizing
+                                  label: Sizing
+                                  type: tag
+                                  value:
+                                    - Feels true to size
+                                - key: sleevelength
+                                  label: Sleeve Length
+                                  type: tag
+                                  value:
+                                    - Feels true to length
+                              updated_date: 1610643975862
+                            internal_review_id: 208829454
+                            legacy_id: 208829454
+                            media: []
+                            metrics:
+                              helpful_score: 1311
+                              helpful_votes: 6
+                              not_helpful_votes: 1
+                              rating: 5
+                            review_id: 285216619
+                            ugc_id: 285216619
+                          - badges:
+                              is_staff_reviewer: true
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              bottom_line: "Yes"
+                              comments: Love this hat! Matches my winter coat so well!
+                              created_date: 1596127018842
+                              headline: Very fun and cute hat!
+                              locale: en_US
+                              location: Chicago
+                              merchant_response: So glad you like it; really appreciate you taking the time to leave us a review!
+                              merchant_response_date: 1596127308237
+                              nickname: SP
+                              product_page_id: "7772289611"
+                              properties:
+                                - key: cons
+                                  label: Cons
+                                  type: tag
+                                  value:
+                                    - Not Warm Enough
+                                - key: pros
+                                  label: Pros
+                                  type: tag
+                                  value:
+                                    - Attractive
+                                - key: sizing
+                                  label: Sizing
+                                  type: tag
+                                  value:
+                                    - Feels true to size
+                              updated_date: 1596148307349
+                            internal_review_id: 208822780
+                            legacy_id: 208822780
+                            media: []
+                            metrics:
+                              helpful_score: 1258
+                              helpful_votes: 0
+                              not_helpful_votes: 0
+                              rating: 5
+                            review_id: 285207808
+                            ugc_id: 285207808
+                          - badges:
+                              is_staff_reviewer: false
+                              is_verified_buyer: false
+                              is_verified_reviewer: false
+                            details:
+                              bottom_line: "Yes"
+                              comments: Finally a jacket that I can wear year round while hiking!
+                              created_date: 1596051208153
+                              headline: Great weatherproof jacket!
+                              locale: en_US
+                              location: Chicago
+                              merchant_response: "We're so glad you like it - as a heads up a new color is..."
+                              merchant_response_date: 1596051504302
+                              nickname: SP
+                              product_page_id: "7751057291"
+                              properties:
+                                - key: cons
+                                  label: Cons
+                                  type: tag
+                                  value:
+                                    - Wrinkle Easily
+                                - key: pros
+                                  label: Pros
+                                  type: tag
+                                  value:
+                                    - Comfortable
+                                    - Washes Well
+                                - key: sizing
+                                  label: Sizing
+                                  type: tag
+                                  value:
+                                    - Feels true to size
+                                - key: sleevelength
+                                  label: Sleeve Length
+                                  type: tag
+                                  value:
+                                    - Feels true to length
+                                - key: describeyourself
+                                  label: Describe Yourself
+                                  type: tag
+                                  value:
+                                    - Casual Dresser
+                              updated_date: 1616007648352
+                            internal_review_id: 208804271
+                            legacy_id: 208804271
+                            media: []
+                            metrics:
+                              helpful_score: 1379
+                              helpful_votes: 5
+                              not_helpful_votes: 0
+                              rating: 5
+                            review_id: 285180531
+                            ugc_id: 285180531
+    post:
+      tags:
+        - Reviews
+      summary: Post Review
+      description: Post Review
+      operationId: postReview
+      responses:
+        "201":
+          description: Post Review
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+              examples:
+                Post Review:
+                  value:
+                    status: success
+    parameters:
+      - name: productId
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ""
+  "/reviews/{reviewId}":
+    get:
+      tags:
+        - Reviews
+      summary: Single Review
+      description: Single Review
+      operationId: singleReview
+      responses:
+        "200":
+          description: Single Review
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  badges:
+                    type: object
+                    properties:
+                      is_staff_reviewer:
+                        type: boolean
+                        example: false
+                      is_verified_buyer:
+                        type: boolean
+                        example: false
+                      is_verified_reviewer:
+                        type: boolean
+                        example: false
+                  details:
+                    type: object
+                    properties:
+                      comments:
+                        type: string
+                        example: test review
+                      created_date:
+                        type: number
+                        example: 1621881061596
+                      headline:
+                        type: string
+                        example: This is the best hat ever TEST
+                      locale:
+                        type: string
+                        example: en_US
+                      location:
+                        type: string
+                        example: test
+                      nickname:
+                        type: string
+                        example: test
+                      product_page_id:
+                        type: string
+                        example: "7772289611"
+                      properties:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                              example: cons
+                            label:
+                              type: string
+                              example: Cons
+                            type:
+                              type: string
+                              example: tag
+                            value:
+                              type: array
+                              items:
+                                type: string
+                                example: Not Warm Enough
+                              example:
+                                - Not Warm Enough
+                                - Poor Fit
+                        example:
+                          - key: cons
+                            label: Cons
+                            type: tag
+                            value:
+                              - Not Warm Enough
+                              - Poor Fit
+                          - key: pros
+                            label: Pros
+                            type: tag
+                            value:
+                              - Attractive
+                              - Lightweight
+                          - key: sizing
+                            label: Sizing
+                            type: tag
+                            value:
+                              - Feels true to size
+                          - key: bestuses
+                            label: Best Uses
+                            type: tag
+                            value:
+                              - Travel
+                              - Winter Sports
+                          - key: describeyourself
+                            label: Describe Yourself
+                            type: tag
+                            value:
+                              - High-end shopper
+                              - Practical
+                      updated_date:
+                        type: number
+                        example: 1621881202447
+                  internal_review_id:
+                    type: number
+                    example: 264778501
+                  legacy_id:
+                    type: number
+                    example: 264778501
+                  media:
+                    type: array
+                    items: {}
+                    example: []
+                  metrics:
+                    type: object
+                    properties:
+                      helpful_score:
+                        type: number
+                        example: 938
+                      helpful_votes:
+                        type: number
+                        example: 0
+                      not_helpful_votes:
+                        type: number
+                        example: 0
+                      rating:
+                        type: number
+                        example: 4
+                  review_id:
+                    type: number
+                    example: 345742364
+                  ugc_id:
+                    type: number
+                    example: 345742364
+              examples:
+                Single Review:
+                  value:
+                    badges:
+                      is_staff_reviewer: false
+                      is_verified_buyer: false
+                      is_verified_reviewer: false
+                    details:
+                      comments: test review
+                      created_date: 1621881061596
+                      headline: This is the best hat ever TEST
+                      locale: en_US
+                      location: test
+                      nickname: test
+                      product_page_id: "7772289611"
+                      properties:
+                        - key: cons
+                          label: Cons
+                          type: tag
+                          value:
+                            - Not Warm Enough
+                            - Poor Fit
+                        - key: pros
+                          label: Pros
+                          type: tag
+                          value:
+                            - Attractive
+                            - Lightweight
+                        - key: sizing
+                          label: Sizing
+                          type: tag
+                          value:
+                            - Feels true to size
+                        - key: bestuses
+                          label: Best Uses
+                          type: tag
+                          value:
+                            - Travel
+                            - Winter Sports
+                        - key: describeyourself
+                          label: Describe Yourself
+                          type: tag
+                          value:
+                            - High-end shopper
+                            - Practical
+                      updated_date: 1621881202447
+                    internal_review_id: 264778501
+                    legacy_id: 264778501
+                    media: []
+                    metrics:
+                      helpful_score: 938
+                      helpful_votes: 0
+                      not_helpful_votes: 0
+                      rating: 4
+                    review_id: 345742364
+                    ugc_id: 345742364
+    parameters:
+      - name: reviewId
+        in: path
+        required: true
+        schema:
+          type: string
+          example: ""
+tags:
+  - name: Reviews

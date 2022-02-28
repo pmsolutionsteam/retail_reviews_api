@@ -1,0 +1,290 @@
+{
+    "info": {
+        "_postman_id": "d30ad1a7-f531-4a27-912e-46cd9b5f3060",
+        "name": "Reviews",
+        "description": "# Products Reviews - Endpoints for managing and retrieving product reviews\n<img src=\"https://pics.freeicons.io/uploads/icons/png/12203050671595452647-512.png\" alt=\"drawing\" width=\"30\" height=\"30\"/></img>\n\nThis collection enables Users to view and post reviews for a particular Union Fashion product\n\n## Prerequisites\nYou are required to select the active environment ProductReviews {{EnvironmentName}}, For Example, if the collection is being operated on at the pre-implementation or prototyping stage, the environment selected would be ProductReviews Mock.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "reviews",
+            "item": [
+                {
+                    "name": "{product Id}",
+                    "item": [
+                        {
+                            "name": "All Reviews for a given ProductId",
+                            "event": [
+                                {
+                                    "listen": "test",
+                                    "script": {
+                                        "id": "b723536a-99f1-4b74-80ba-243cc7e70e6a",
+                                        "exec": [
+                                            "responseJson = pm.response.json();",
+                                            "",
+                                            "",
+                                            "pm.test(\"Status code is 200\", function () {",
+                                            "    pm.response.to.have.status(200);",
+                                            "});",
+                                            ""
+                                        ],
+                                        "type": "text/javascript"
+                                    }
+                                },
+                                {
+                                    "listen": "prerequest",
+                                    "script": {
+                                        "id": "12d240fe-1d8b-45fb-8bb7-3aac8de03a37",
+                                        "exec": [
+                                            "pm.environment.set(\"productId\", 345742364);"
+                                        ],
+                                        "type": "text/javascript"
+                                    }
+                                }
+                            ],
+                            "id": "c30ed79e-7c83-4a17-aec5-78f4839c4b29",
+                            "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                            },
+                            "request": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/reviews/:productId",
+                                    "host": [
+                                        "{{url}}"
+                                    ],
+                                    "path": [
+                                        "reviews",
+                                        ":productId"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "id": "89c03a8e-bd69-40ea-9515-fc25e9124df0",
+                                            "key": "productId",
+                                            "value": "",
+                                            "description": "(Required) "
+                                        }
+                                    ]
+                                },
+                                "description": "All Reviews for a given ProductId"
+                            },
+                            "response": [
+                                {
+                                    "id": "c1a1b74d-1290-439f-baf4-18961b4867c6",
+                                    "name": "All Reviews for a given ProductId",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [],
+                                        "url": {
+                                            "raw": "{{url}}/reviews/:productId",
+                                            "host": [
+                                                "{{url}}"
+                                            ],
+                                            "path": [
+                                                "reviews",
+                                                ":productId"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "productId"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": "{\n\t\"name\": \"review\",\n    \"product_id\": 345742364,\n\t\"paging\": {\n\t\t\"total_results\": 176,\n\t\t\"pages_total\": 8,\n\t\t\"page_size\": 25,\n\t\t\"next_page_url\": \"/m/512774/reviews?scroll=DXF1ZXJ5QW5kRmV0Y2gBAAAAAQbseNkWSl93cDFCaDNUeWVJNTJGRHktZWhQQQ==\"\n\t},\n\t\"results\": [{\n\t\t\"reviews\": [{\n\t\t\t\t\"ugc_id\": 345742364,\n\t\t\t\t\"legacy_id\": 264778501,\n\t\t\t\t\"review_id\": 345742364,\n\t\t\t\t\"internal_review_id\": 264778501,\n\t\t\t\t\"details\": {\n\t\t\t\t\t\"comments\": \"test review\",\n\t\t\t\t\t\"headline\": \"This is the best hat ever TEST\",\n\t\t\t\t\t\"nickname\": \"test\",\n\t\t\t\t\t\"properties\": [{\n\t\t\t\t\t\t\t\"key\": \"cons\",\n\t\t\t\t\t\t\t\"label\": \"Cons\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"Not Warm Enough\",\n\t\t\t\t\t\t\t\t\"Poor Fit\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"key\": \"pros\",\n\t\t\t\t\t\t\t\"label\": \"Pros\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"Attractive\",\n\t\t\t\t\t\t\t\t\"Lightweight\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"key\": \"sizing\",\n\t\t\t\t\t\t\t\"label\": \"Sizing\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"Feels true to size\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"key\": \"bestuses\",\n\t\t\t\t\t\t\t\"label\": \"Best Uses\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"Travel\",\n\t\t\t\t\t\t\t\t\"Winter Sports\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"key\": \"describeyourself\",\n\t\t\t\t\t\t\t\"label\": \"Describe Yourself\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"High-end shopper\",\n\t\t\t\t\t\t\t\t\"Practical\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t}\n\t\t\t\t\t],\n\t\t\t\t\t\"locale\": \"en_US\",\n\t\t\t\t\t\"location\": \"test\",\n\t\t\t\t\t\"created_date\": 1621881061596,\n\t\t\t\t\t\"updated_date\": 1621881202447,\n\t\t\t\t\t\"product_page_id\": \"7772289611\"\n\t\t\t\t},\n\t\t\t\t\"badges\": {\n\t\t\t\t\t\"is_staff_reviewer\": false,\n\t\t\t\t\t\"is_verified_buyer\": false,\n\t\t\t\t\t\"is_verified_reviewer\": false\n\t\t\t\t},\n\t\t\t\t\"media\": [],\n\t\t\t\t\"metrics\": {\n\t\t\t\t\t\"helpful_votes\": 0,\n\t\t\t\t\t\"not_helpful_votes\": 0,\n\t\t\t\t\t\"rating\": 4,\n\t\t\t\t\t\"helpful_score\": 938\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ugc_id\": 342274062,\n\t\t\t\t\"legacy_id\": 261836989,\n\t\t\t\t\"review_id\": 342274062,\n\t\t\t\t\"internal_review_id\": 261836989,\n\t\t\t\t\"details\": {\n\t\t\t\t\t\"comments\": \"This backpack is fashionable and lightweight. Perfect for commuting. I do wish it was a bit more durable though as it is starting to fray at the seam a bit.\",\n\t\t\t\t\t\"headline\": \"I love this backpack\",\n\t\t\t\t\t\"nickname\": \"Tony the Tiger\",\n\t\t\t\t\t\"properties\": [],\n\t\t\t\t\t\"locale\": \"en_US\",\n\t\t\t\t\t\"location\": \"USA\",\n\t\t\t\t\t\"created_date\": 1619023720156,\n\t\t\t\t\t\"updated_date\": 1619185113097,\n\t\t\t\t\t\"bottom_line\": \"Yes\",\n\t\t\t\t\t\"product_page_id\": \"4422688407665\"\n\t\t\t\t},\n\t\t\t\t\"badges\": {\n\t\t\t\t\t\"is_staff_reviewer\": true,\n\t\t\t\t\t\"is_verified_buyer\": false,\n\t\t\t\t\t\"is_verified_reviewer\": false\n\t\t\t\t},\n\t\t\t\t\"media\": [],\n\t\t\t\t\"metrics\": {\n\t\t\t\t\t\"helpful_votes\": 0,\n\t\t\t\t\t\"not_helpful_votes\": 0,\n\t\t\t\t\t\"rating\": 4,\n\t\t\t\t\t\"helpful_score\": 1469\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ugc_id\": 340000068,\n\t\t\t\t\"legacy_id\": 259868826,\n\t\t\t\t\"review_id\": 340000068,\n\t\t\t\t\"internal_review_id\": 259868826,\n\t\t\t\t\"details\": {\n\t\t\t\t\t\"comments\": \"The largest size was still a little too tight. I wish this had a wider size range because it's a cute jacket otherwise.\",\n\t\t\t\t\t\"headline\": \"I wish it came in a larger size\",\n\t\t\t\t\t\"nickname\": \"JKL\",\n\t\t\t\t\t\"properties\": [{\n\t\t\t\t\t\t\t\"key\": \"sizing\",\n\t\t\t\t\t\t\t\"label\": \"Sizing\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"Feels too small\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"key\": \"sleevelength\",\n\t\t\t\t\t\t\t\"label\": \"Sleeve Length\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"Feels true to length\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t}\n\t\t\t\t\t],\n\t\t\t\t\t\"locale\": \"en_US\",\n\t\t\t\t\t\"location\": \"Chicago\",\n\t\t\t\t\t\"created_date\": 1617227373265,\n\t\t\t\t\t\"updated_date\": 1621255993912,\n\t\t\t\t\t\"product_page_id\": \"7751057291\"\n\t\t\t\t},\n\t\t\t\t\"badges\": {\n\t\t\t\t\t\"is_staff_reviewer\": false,\n\t\t\t\t\t\"is_verified_buyer\": false,\n\t\t\t\t\t\"is_verified_reviewer\": false\n\t\t\t\t},\n\t\t\t\t\"media\": [],\n\t\t\t\t\"metrics\": {\n\t\t\t\t\t\"helpful_votes\": 7,\n\t\t\t\t\t\"not_helpful_votes\": 1,\n\t\t\t\t\t\"rating\": 2,\n\t\t\t\t\t\"helpful_score\": 1505\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ugc_id\": 339999291,\n\t\t\t\t\"legacy_id\": 259868318,\n\t\t\t\t\"review_id\": 339999291,\n\t\t\t\t\"internal_review_id\": 259868318,\n\t\t\t\t\"details\": {\n\t\t\t\t\t\"comments\": \"These are delicious and super smooth. The ganache is rich and not too sweet.\",\n\t\t\t\t\t\"headline\": \"Smooth as butter\",\n\t\t\t\t\t\"nickname\": \"KL\",\n\t\t\t\t\t\"properties\": [],\n\t\t\t\t\t\"locale\": \"en_US\",\n\t\t\t\t\t\"location\": \"Chicago\",\n\t\t\t\t\t\"created_date\": 1617225869200,\n\t\t\t\t\t\"updated_date\": 1618255973688,\n\t\t\t\t\t\"product_page_id\": \"7799392523\"\n\t\t\t\t},\n\t\t\t\t\"badges\": {\n\t\t\t\t\t\"is_staff_reviewer\": true,\n\t\t\t\t\t\"is_verified_buyer\": false,\n\t\t\t\t\t\"is_verified_reviewer\": false\n\t\t\t\t},\n\t\t\t\t\"media\": [],\n\t\t\t\t\"metrics\": {\n\t\t\t\t\t\"helpful_votes\": 1,\n\t\t\t\t\t\"not_helpful_votes\": 0,\n\t\t\t\t\t\"rating\": 5,\n\t\t\t\t\t\"helpful_score\": 1260\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ugc_id\": 339999291,\n\t\t\t\t\"legacy_id\": 259868318,\n\t\t\t\t\"review_id\": 339999291,\n\t\t\t\t\"internal_review_id\": 259868318,\n\t\t\t\t\"details\": {\n\t\t\t\t\t\"comments\": \"These are delicious and super smooth. The ganache is rich and not too sweet.\",\n\t\t\t\t\t\"headline\": \"Smooth as butter\",\n\t\t\t\t\t\"nickname\": \"KL\",\n\t\t\t\t\t\"properties\": [],\n\t\t\t\t\t\"locale\": \"en_US\",\n\t\t\t\t\t\"location\": \"Chicago\",\n\t\t\t\t\t\"created_date\": 1617225869200,\n\t\t\t\t\t\"updated_date\": 1618255973688,\n\t\t\t\t\t\"product_page_id\": \"hollywood-blushing-baked-blush_trio\"\n\t\t\t\t},\n\t\t\t\t\"badges\": {\n\t\t\t\t\t\"is_staff_reviewer\": true,\n\t\t\t\t\t\"is_verified_buyer\": false,\n\t\t\t\t\t\"is_verified_reviewer\": false\n\t\t\t\t},\n\t\t\t\t\"media\": [],\n\t\t\t\t\"metrics\": {\n\t\t\t\t\t\"helpful_votes\": 1,\n\t\t\t\t\t\"not_helpful_votes\": 0,\n\t\t\t\t\t\"rating\": 5,\n\t\t\t\t\t\"helpful_score\": 1260\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ugc_id\": 339996906,\n\t\t\t\t\"legacy_id\": 339996906,\n\t\t\t\t\"review_id\": 339996906,\n\t\t\t\t\"internal_review_id\": 339996906,\n\t\t\t\t\"details\": {\n\t\t\t\t\t\"comments\": \"test\",\n\t\t\t\t\t\"headline\": \"test\",\n\t\t\t\t\t\"nickname\": \"anonymous\",\n\t\t\t\t\t\"properties\": [{\n\t\t\t\t\t\t\t\"key\": \"sizing\",\n\t\t\t\t\t\t\t\"label\": \"Sizing\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"Feels half size too big\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"key\": \"bestuses\",\n\t\t\t\t\t\t\t\"label\": \"Best Uses\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"Extreme Cold\",\n\t\t\t\t\t\t\t\t\"Sports\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t}\n\t\t\t\t\t],\n\t\t\t\t\t\"locale\": \"en_US\",\n\t\t\t\t\t\"location\": \"Undisclosed\",\n\t\t\t\t\t\"created_date\": 1617222020969,\n\t\t\t\t\t\"updated_date\": 1618253225337,\n\t\t\t\t\t\"product_page_id\": \"7772289611\"\n\t\t\t\t},\n\t\t\t\t\"badges\": {\n\t\t\t\t\t\"is_staff_reviewer\": true,\n\t\t\t\t\t\"is_verified_buyer\": false,\n\t\t\t\t\t\"is_verified_reviewer\": false\n\t\t\t\t},\n\t\t\t\t\"media\": [],\n\t\t\t\t\"metrics\": {\n\t\t\t\t\t\"helpful_votes\": 0,\n\t\t\t\t\t\"not_helpful_votes\": 0,\n\t\t\t\t\t\"rating\": 4,\n\t\t\t\t\t\"helpful_score\": 0\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ugc_id\": 339869703,\n\t\t\t\t\"legacy_id\": 259750938,\n\t\t\t\t\"review_id\": 339869703,\n\t\t\t\t\"internal_review_id\": 259750938,\n\t\t\t\t\"details\": {\n\t\t\t\t\t\"comments\": \"this is great lightweight jacket\",\n\t\t\t\t\t\"headline\": \"love it\",\n\t\t\t\t\t\"nickname\": \"cristian\",\n\t\t\t\t\t\"properties\": [],\n\t\t\t\t\t\"locale\": \"en_US\",\n\t\t\t\t\t\"location\": \"chicago\",\n\t\t\t\t\t\"created_date\": 1617156911201,\n\t\t\t\t\t\"updated_date\": 1621423711478,\n\t\t\t\t\t\"product_page_id\": \"7751057291\"\n\t\t\t\t},\n\t\t\t\t\"badges\": {\n\t\t\t\t\t\"is_staff_reviewer\": false,\n\t\t\t\t\t\"is_verified_buyer\": false,\n\t\t\t\t\t\"is_verified_reviewer\": false\n\t\t\t\t},\n\t\t\t\t\"media\": [],\n\t\t\t\t\"metrics\": {\n\t\t\t\t\t\"helpful_votes\": 2,\n\t\t\t\t\t\"not_helpful_votes\": 0,\n\t\t\t\t\t\"rating\": 4,\n\t\t\t\t\t\"helpful_score\": 1008\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ugc_id\": 339431242,\n\t\t\t\t\"legacy_id\": 339431242,\n\t\t\t\t\"review_id\": 339431242,\n\t\t\t\t\"internal_review_id\": 339431242,\n\t\t\t\t\"details\": {\n\t\t\t\t\t\"comments\": \"THis is my favorite hat\",\n\t\t\t\t\t\"headline\": \"Love it\",\n\t\t\t\t\t\"nickname\": \"anonymous\",\n\t\t\t\t\t\"properties\": [{\n\t\t\t\t\t\t\t\"key\": \"sizing\",\n\t\t\t\t\t\t\t\"label\": \"Sizing\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"Feels half size too small\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"key\": \"bestuses\",\n\t\t\t\t\t\t\t\"label\": \"Best Uses\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"Sports\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t}\n\t\t\t\t\t],\n\t\t\t\t\t\"locale\": \"en_US\",\n\t\t\t\t\t\"location\": \"Undisclosed\",\n\t\t\t\t\t\"created_date\": 1616686361495,\n\t\t\t\t\t\"updated_date\": 1617045037535,\n\t\t\t\t\t\"product_page_id\": \"7772289611\"\n\t\t\t\t},\n\t\t\t\t\"badges\": {\n\t\t\t\t\t\"is_staff_reviewer\": true,\n\t\t\t\t\t\"is_verified_buyer\": false,\n\t\t\t\t\t\"is_verified_reviewer\": false\n\t\t\t\t},\n\t\t\t\t\"media\": [],\n\t\t\t\t\"metrics\": {\n\t\t\t\t\t\"helpful_votes\": 0,\n\t\t\t\t\t\"not_helpful_votes\": 0,\n\t\t\t\t\t\"rating\": 5,\n\t\t\t\t\t\"helpful_score\": 0\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ugc_id\": 335062782,\n\t\t\t\t\"legacy_id\": 255247390,\n\t\t\t\t\"review_id\": 335062782,\n\t\t\t\t\"internal_review_id\": 255247390,\n\t\t\t\t\"details\": {\n\t\t\t\t\t\"comments\": \"These are really great headphones!\",\n\t\t\t\t\t\"headline\": \"Great Headphones!\",\n\t\t\t\t\t\"nickname\": \"Niel\",\n\t\t\t\t\t\"properties\": [{\n\t\t\t\t\t\t\t\"key\": \"cons\",\n\t\t\t\t\t\t\t\"label\": \"Cons\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"Poor Value\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"key\": \"pros\",\n\t\t\t\t\t\t\t\"label\": \"Pros\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"Durable\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"key\": \"bestuses\",\n\t\t\t\t\t\t\t\"label\": \"Best Uses\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"Travel\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t}\n\t\t\t\t\t],\n\t\t\t\t\t\"locale\": \"en_US\",\n\t\t\t\t\t\"location\": \"Chicago, IL\",\n\t\t\t\t\t\"created_date\": 1615567603316,\n\t\t\t\t\t\"updated_date\": 1615823882645,\n\t\t\t\t\t\"product_page_id\": \"7799373259\"\n\t\t\t\t},\n\t\t\t\t\"badges\": {\n\t\t\t\t\t\"is_staff_reviewer\": false,\n\t\t\t\t\t\"is_verified_buyer\": false,\n\t\t\t\t\t\"is_verified_reviewer\": false\n\t\t\t\t},\n\t\t\t\t\"media\": [],\n\t\t\t\t\"metrics\": {\n\t\t\t\t\t\"helpful_votes\": 0,\n\t\t\t\t\t\"not_helpful_votes\": 0,\n\t\t\t\t\t\"rating\": 5,\n\t\t\t\t\t\"helpful_score\": 1170\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ugc_id\": 330194603,\n\t\t\t\t\"legacy_id\": 330194603,\n\t\t\t\t\"review_id\": 330194603,\n\t\t\t\t\"internal_review_id\": 330194603,\n\t\t\t\t\"details\": {\n\t\t\t\t\t\"comments\": \"I hate this hat.  The wool is really itchy. DON'T BUY IT\",\n\t\t\t\t\t\"headline\": \"Hate it!\",\n\t\t\t\t\t\"nickname\": \"anonymous\",\n\t\t\t\t\t\"properties\": [{\n\t\t\t\t\t\t\t\"key\": \"sizing\",\n\t\t\t\t\t\t\t\"label\": \"Sizing\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"Feels true to size\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"key\": \"bestuses\",\n\t\t\t\t\t\t\t\"label\": \"Best Uses\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"Sports\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t}\n\t\t\t\t\t],\n\t\t\t\t\t\"locale\": \"en_US\",\n\t\t\t\t\t\"location\": \"Undisclosed\",\n\t\t\t\t\t\"created_date\": 1613575291230,\n\t\t\t\t\t\"updated_date\": 1615232441787,\n\t\t\t\t\t\"product_page_id\": \"7772289611\"\n\t\t\t\t},\n\t\t\t\t\"badges\": {\n\t\t\t\t\t\"is_staff_reviewer\": true,\n\t\t\t\t\t\"is_verified_buyer\": false,\n\t\t\t\t\t\"is_verified_reviewer\": false\n\t\t\t\t},\n\t\t\t\t\"media\": [],\n\t\t\t\t\"metrics\": {\n\t\t\t\t\t\"helpful_votes\": 0,\n\t\t\t\t\t\"not_helpful_votes\": 0,\n\t\t\t\t\t\"rating\": 1,\n\t\t\t\t\t\"helpful_score\": 0\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ugc_id\": 317460820,\n\t\t\t\t\"legacy_id\": 317460820,\n\t\t\t\t\"review_id\": 317460820,\n\t\t\t\t\"internal_review_id\": 317460820,\n\t\t\t\t\"details\": {\n\t\t\t\t\t\"comments\": \"Love this product\",\n\t\t\t\t\t\"headline\": \"Great set!\",\n\t\t\t\t\t\"nickname\": \"anonymous\",\n\t\t\t\t\t\"properties\": [{\n\t\t\t\t\t\t\t\"key\": \"sizing\",\n\t\t\t\t\t\t\t\"label\": \"Sizing\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"Feels half size too small\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"key\": \"bestuses\",\n\t\t\t\t\t\t\t\"label\": \"Best Uses\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"Sports\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t}\n\t\t\t\t\t],\n\t\t\t\t\t\"locale\": \"en_US\",\n\t\t\t\t\t\"location\": \"Undisclosed\",\n\t\t\t\t\t\"created_date\": 1606161321973,\n\t\t\t\t\t\"updated_date\": 1608750817271,\n\t\t\t\t\t\"product_page_id\": \"7772289611\"\n\t\t\t\t},\n\t\t\t\t\"badges\": {\n\t\t\t\t\t\"is_staff_reviewer\": true,\n\t\t\t\t\t\"is_verified_buyer\": false,\n\t\t\t\t\t\"is_verified_reviewer\": false\n\t\t\t\t},\n\t\t\t\t\"media\": [],\n\t\t\t\t\"metrics\": {\n\t\t\t\t\t\"helpful_votes\": 0,\n\t\t\t\t\t\"not_helpful_votes\": 0,\n\t\t\t\t\t\"rating\": 5,\n\t\t\t\t\t\"helpful_score\": 0\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ugc_id\": 310061548,\n\t\t\t\t\"legacy_id\": 310061548,\n\t\t\t\t\"review_id\": 310061548,\n\t\t\t\t\"internal_review_id\": 310061548,\n\t\t\t\t\"details\": {\n\t\t\t\t\t\"comments\": \"asdfdsafd\",\n\t\t\t\t\t\"headline\": \"afdsfasd\",\n\t\t\t\t\t\"nickname\": \"anonymous\",\n\t\t\t\t\t\"properties\": [],\n\t\t\t\t\t\"locale\": \"en_US\",\n\t\t\t\t\t\"location\": \"Undisclosed\",\n\t\t\t\t\t\"created_date\": 1603913381649,\n\t\t\t\t\t\"updated_date\": 1604503895797,\n\t\t\t\t\t\"product_page_id\": \"7772289611\"\n\t\t\t\t},\n\t\t\t\t\"badges\": {\n\t\t\t\t\t\"is_staff_reviewer\": true,\n\t\t\t\t\t\"is_verified_buyer\": false,\n\t\t\t\t\t\"is_verified_reviewer\": false\n\t\t\t\t},\n\t\t\t\t\"media\": [],\n\t\t\t\t\"metrics\": {\n\t\t\t\t\t\"helpful_votes\": 0,\n\t\t\t\t\t\"not_helpful_votes\": 0,\n\t\t\t\t\t\"rating\": 4,\n\t\t\t\t\t\"helpful_score\": 0\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ugc_id\": 308147220,\n\t\t\t\t\"legacy_id\": 230609844,\n\t\t\t\t\"review_id\": 308147220,\n\t\t\t\t\"internal_review_id\": 230609844,\n\t\t\t\t\"details\": {\n\t\t\t\t\t\"comments\": \"I live in Chicago and it's nice to have a jacket that takes me from fall to spring.\",\n\t\t\t\t\t\"headline\": \"Great year round jacket\",\n\t\t\t\t\t\"nickname\": \"SP\",\n\t\t\t\t\t\"properties\": [{\n\t\t\t\t\t\t\t\"key\": \"sizing\",\n\t\t\t\t\t\t\t\"label\": \"Sizing\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"Feels true to size\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"key\": \"sleevelength\",\n\t\t\t\t\t\t\t\"label\": \"Sleeve Length\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"Feels true to length\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t}\n\t\t\t\t\t],\n\t\t\t\t\t\"locale\": \"en_US\",\n\t\t\t\t\t\"merchant_response\": \"Thanks so much for your review. Stay warm!\",\n\t\t\t\t\t\"merchant_response_date\": 1602879290367,\n\t\t\t\t\t\"location\": \"Chicago\",\n\t\t\t\t\t\"created_date\": 1602879220360,\n\t\t\t\t\t\"updated_date\": 1620673013658,\n\t\t\t\t\t\"bottom_line\": \"Yes\",\n\t\t\t\t\t\"product_page_id\": \"7751057291\"\n\t\t\t\t},\n\t\t\t\t\"badges\": {\n\t\t\t\t\t\"is_staff_reviewer\": true,\n\t\t\t\t\t\"is_verified_buyer\": false,\n\t\t\t\t\t\"is_verified_reviewer\": false\n\t\t\t\t},\n\t\t\t\t\"media\": [],\n\t\t\t\t\"metrics\": {\n\t\t\t\t\t\"helpful_votes\": 7,\n\t\t\t\t\t\"not_helpful_votes\": 2,\n\t\t\t\t\t\"rating\": 5,\n\t\t\t\t\t\"helpful_score\": 1400\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ugc_id\": 301659457,\n\t\t\t\t\"legacy_id\": 224359818,\n\t\t\t\t\"review_id\": 301659457,\n\t\t\t\t\"internal_review_id\": 224359818,\n\t\t\t\t\"details\": {\n\t\t\t\t\t\"comments\": \"I keep this in my purse at all times - this is my favorite chapstick.\",\n\t\t\t\t\t\"headline\": \"My Fav Chapstick\",\n\t\t\t\t\t\"nickname\": \"Rachel\",\n\t\t\t\t\t\"properties\": [],\n\t\t\t\t\t\"locale\": \"en_US\",\n\t\t\t\t\t\"location\": \"New York\",\n\t\t\t\t\t\"created_date\": 1601392852595,\n\t\t\t\t\t\"updated_date\": 1619015926779,\n\t\t\t\t\t\"product_page_id\": \"7772277707\"\n\t\t\t\t},\n\t\t\t\t\"badges\": {\n\t\t\t\t\t\"is_staff_reviewer\": false,\n\t\t\t\t\t\"is_verified_buyer\": false,\n\t\t\t\t\t\"is_verified_reviewer\": false\n\t\t\t\t},\n\t\t\t\t\"media\": [],\n\t\t\t\t\"metrics\": {\n\t\t\t\t\t\"helpful_votes\": 1,\n\t\t\t\t\t\"not_helpful_votes\": 0,\n\t\t\t\t\t\"rating\": 5,\n\t\t\t\t\t\"helpful_score\": 1232\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ugc_id\": 301658726,\n\t\t\t\t\"legacy_id\": 224359283,\n\t\t\t\t\"review_id\": 301658726,\n\t\t\t\t\"internal_review_id\": 224359283,\n\t\t\t\t\"details\": {\n\t\t\t\t\t\"comments\": \"this is to test the feature that sends an email when a review is approved at l2?\",\n\t\t\t\t\t\"headline\": \"approved review email testing\",\n\t\t\t\t\t\"nickname\": \"test\",\n\t\t\t\t\t\"properties\": [],\n\t\t\t\t\t\"locale\": \"en_US\",\n\t\t\t\t\t\"location\": \"test\",\n\t\t\t\t\t\"created_date\": 1601391471504,\n\t\t\t\t\t\"updated_date\": 1619092776642,\n\t\t\t\t\t\"product_page_id\": \"7772277707\"\n\t\t\t\t},\n\t\t\t\t\"badges\": {\n\t\t\t\t\t\"is_staff_reviewer\": false,\n\t\t\t\t\t\"is_verified_buyer\": false,\n\t\t\t\t\t\"is_verified_reviewer\": false\n\t\t\t\t},\n\t\t\t\t\"media\": [],\n\t\t\t\t\"metrics\": {\n\t\t\t\t\t\"helpful_votes\": 1,\n\t\t\t\t\t\"not_helpful_votes\": 1,\n\t\t\t\t\t\"rating\": 4,\n\t\t\t\t\t\"helpful_score\": 1275\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ugc_id\": 301658571,\n\t\t\t\t\"legacy_id\": 224359185,\n\t\t\t\t\"review_id\": 301658571,\n\t\t\t\t\"internal_review_id\": 224359185,\n\t\t\t\t\"details\": {\n\t\t\t\t\t\"comments\": \"These are the best headphones - the sound quality is amazing!\",\n\t\t\t\t\t\"headline\": \"Amazing Sound\",\n\t\t\t\t\t\"nickname\": \"Rachel\",\n\t\t\t\t\t\"properties\": [],\n\t\t\t\t\t\"locale\": \"en_US\",\n\t\t\t\t\t\"location\": \"Denver\",\n\t\t\t\t\t\"created_date\": 1601391163337,\n\t\t\t\t\t\"updated_date\": 1604375607402,\n\t\t\t\t\t\"product_page_id\": \"7799373259\"\n\t\t\t\t},\n\t\t\t\t\"badges\": {\n\t\t\t\t\t\"is_staff_reviewer\": false,\n\t\t\t\t\t\"is_verified_buyer\": false,\n\t\t\t\t\t\"is_verified_reviewer\": false\n\t\t\t\t},\n\t\t\t\t\"media\": [],\n\t\t\t\t\"metrics\": {\n\t\t\t\t\t\"helpful_votes\": 1,\n\t\t\t\t\t\"not_helpful_votes\": 0,\n\t\t\t\t\t\"rating\": 5,\n\t\t\t\t\t\"helpful_score\": 1196\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ugc_id\": 301658558,\n\t\t\t\t\"legacy_id\": 224359171,\n\t\t\t\t\"review_id\": 301658558,\n\t\t\t\t\"internal_review_id\": 224359171,\n\t\t\t\t\"details\": {\n\t\t\t\t\t\"comments\": \"i love this jacket, it keeps me so dry and warm!\",\n\t\t\t\t\t\"headline\": \"great jacket\",\n\t\t\t\t\t\"nickname\": \"alex the tester\",\n\t\t\t\t\t\"properties\": [],\n\t\t\t\t\t\"locale\": \"en_US\",\n\t\t\t\t\t\"location\": \"chicago\",\n\t\t\t\t\t\"created_date\": 1601391125289,\n\t\t\t\t\t\"updated_date\": 1621255980845,\n\t\t\t\t\t\"product_page_id\": \"7751057291\"\n\t\t\t\t},\n\t\t\t\t\"badges\": {\n\t\t\t\t\t\"is_staff_reviewer\": false,\n\t\t\t\t\t\"is_verified_buyer\": false,\n\t\t\t\t\t\"is_verified_reviewer\": false\n\t\t\t\t},\n\t\t\t\t\"media\": [],\n\t\t\t\t\"metrics\": {\n\t\t\t\t\t\"helpful_votes\": 8,\n\t\t\t\t\t\"not_helpful_votes\": 2,\n\t\t\t\t\t\"rating\": 5,\n\t\t\t\t\t\"helpful_score\": 1126\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ugc_id\": 301077681,\n\t\t\t\t\"legacy_id\": 301077681,\n\t\t\t\t\"review_id\": 301077681,\n\t\t\t\t\"internal_review_id\": 301077681,\n\t\t\t\t\"details\": {\n\t\t\t\t\t\"comments\": \"Love this hat!\",\n\t\t\t\t\t\"headline\": \"Love it!\",\n\t\t\t\t\t\"nickname\": \"anonymous\",\n\t\t\t\t\t\"properties\": [{\n\t\t\t\t\t\t\t\"key\": \"sizing\",\n\t\t\t\t\t\t\t\"label\": \"Sizing\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"Feels full size too small\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"key\": \"bestuses\",\n\t\t\t\t\t\t\t\"label\": \"Best Uses\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"Extreme Cold\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t}\n\t\t\t\t\t],\n\t\t\t\t\t\"locale\": \"en_US\",\n\t\t\t\t\t\"location\": \"Undisclosed\",\n\t\t\t\t\t\"created_date\": 1600981855173,\n\t\t\t\t\t\"updated_date\": 1602019980158,\n\t\t\t\t\t\"product_page_id\": \"7772289611\"\n\t\t\t\t},\n\t\t\t\t\"badges\": {\n\t\t\t\t\t\"is_staff_reviewer\": true,\n\t\t\t\t\t\"is_verified_buyer\": false,\n\t\t\t\t\t\"is_verified_reviewer\": false\n\t\t\t\t},\n\t\t\t\t\"media\": [],\n\t\t\t\t\"metrics\": {\n\t\t\t\t\t\"helpful_votes\": 0,\n\t\t\t\t\t\"not_helpful_votes\": 0,\n\t\t\t\t\t\"rating\": 5,\n\t\t\t\t\t\"helpful_score\": 0\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ugc_id\": 298406824,\n\t\t\t\t\"legacy_id\": 221522772,\n\t\t\t\t\"review_id\": 298406824,\n\t\t\t\t\"internal_review_id\": 221522772,\n\t\t\t\t\"details\": {\n\t\t\t\t\t\"comments\": \"Not only was my delivery late, but the delivery driver must have thrown the box onto my doorstep like a football.  The box was basically broken. Such a bad experience.\",\n\t\t\t\t\t\"headline\": \"Late Delivery!\",\n\t\t\t\t\t\"nickname\": \"ChocoLoverDude\",\n\t\t\t\t\t\"properties\": [{\n\t\t\t\t\t\t\"key\": \"whowasthispurchasedfor\",\n\t\t\t\t\t\t\"label\": \"Who was this purchased for?\",\n\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\"Myself\"\n\t\t\t\t\t\t]\n\t\t\t\t\t}],\n\t\t\t\t\t\"locale\": \"en_US\",\n\t\t\t\t\t\"location\": \"North Salem, NY\",\n\t\t\t\t\t\"created_date\": 1598879030987,\n\t\t\t\t\t\"updated_date\": 1617639479177,\n\t\t\t\t\t\"bottom_line\": \"No\",\n\t\t\t\t\t\"product_page_id\": \"7799392523\"\n\t\t\t\t},\n\t\t\t\t\"badges\": {\n\t\t\t\t\t\"is_staff_reviewer\": false,\n\t\t\t\t\t\"is_verified_buyer\": false,\n\t\t\t\t\t\"is_verified_reviewer\": false\n\t\t\t\t},\n\t\t\t\t\"media\": [],\n\t\t\t\t\"metrics\": {\n\t\t\t\t\t\"helpful_votes\": 1,\n\t\t\t\t\t\"not_helpful_votes\": 1,\n\t\t\t\t\t\"rating\": 1,\n\t\t\t\t\t\"helpful_score\": 1489\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ugc_id\": 298406824,\n\t\t\t\t\"legacy_id\": 221522772,\n\t\t\t\t\"review_id\": 298406824,\n\t\t\t\t\"internal_review_id\": 221522772,\n\t\t\t\t\"details\": {\n\t\t\t\t\t\"comments\": \"Not only was my delivery late, but the delivery driver must have thrown the box onto my doorstep like a football.  The box was basically broken. Such a bad experience.\",\n\t\t\t\t\t\"headline\": \"Late Delivery!\",\n\t\t\t\t\t\"nickname\": \"ChocoLoverDude\",\n\t\t\t\t\t\"properties\": [{\n\t\t\t\t\t\t\"key\": \"whowasthispurchasedfor\",\n\t\t\t\t\t\t\"label\": \"Who was this purchased for?\",\n\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\"Myself\"\n\t\t\t\t\t\t]\n\t\t\t\t\t}],\n\t\t\t\t\t\"locale\": \"en_US\",\n\t\t\t\t\t\"location\": \"North Salem, NY\",\n\t\t\t\t\t\"created_date\": 1598879030987,\n\t\t\t\t\t\"updated_date\": 1617639479177,\n\t\t\t\t\t\"bottom_line\": \"No\",\n\t\t\t\t\t\"product_page_id\": \"hollywood-blushing-baked-blush_trio\"\n\t\t\t\t},\n\t\t\t\t\"badges\": {\n\t\t\t\t\t\"is_staff_reviewer\": false,\n\t\t\t\t\t\"is_verified_buyer\": false,\n\t\t\t\t\t\"is_verified_reviewer\": false\n\t\t\t\t},\n\t\t\t\t\"media\": [],\n\t\t\t\t\"metrics\": {\n\t\t\t\t\t\"helpful_votes\": 1,\n\t\t\t\t\t\"not_helpful_votes\": 1,\n\t\t\t\t\t\"rating\": 1,\n\t\t\t\t\t\"helpful_score\": 1489\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ugc_id\": 297266579,\n\t\t\t\t\"legacy_id\": 220467700,\n\t\t\t\t\"review_id\": 297266579,\n\t\t\t\t\"internal_review_id\": 220467700,\n\t\t\t\t\"details\": {\n\t\t\t\t\t\"comments\": \"Great headphones\",\n\t\t\t\t\t\"headline\": \"Great headphones\",\n\t\t\t\t\t\"nickname\": \"Niel\",\n\t\t\t\t\t\"properties\": [],\n\t\t\t\t\t\"locale\": \"en_US\",\n\t\t\t\t\t\"location\": \"Chicago, IL\",\n\t\t\t\t\t\"created_date\": 1598301886112,\n\t\t\t\t\t\"updated_date\": 1618926596841,\n\t\t\t\t\t\"product_page_id\": \"7799373259\"\n\t\t\t\t},\n\t\t\t\t\"badges\": {\n\t\t\t\t\t\"is_staff_reviewer\": false,\n\t\t\t\t\t\"is_verified_buyer\": false,\n\t\t\t\t\t\"is_verified_reviewer\": false\n\t\t\t\t},\n\t\t\t\t\"media\": [],\n\t\t\t\t\"metrics\": {\n\t\t\t\t\t\"helpful_votes\": 1,\n\t\t\t\t\t\"not_helpful_votes\": 0,\n\t\t\t\t\t\"rating\": 4,\n\t\t\t\t\t\"helpful_score\": 806\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ugc_id\": 292339949,\n\t\t\t\t\"legacy_id\": 292339949,\n\t\t\t\t\"review_id\": 292339949,\n\t\t\t\t\"internal_review_id\": 292339949,\n\t\t\t\t\"details\": {\n\t\t\t\t\t\"comments\": \"LOve it for the spring\",\n\t\t\t\t\t\"headline\": \"GREAT\",\n\t\t\t\t\t\"nickname\": \"anonymous\",\n\t\t\t\t\t\"properties\": [],\n\t\t\t\t\t\"locale\": \"en_US\",\n\t\t\t\t\t\"location\": \"Undisclosed\",\n\t\t\t\t\t\"created_date\": 1597691343272,\n\t\t\t\t\t\"updated_date\": 1616780260827,\n\t\t\t\t\t\"product_page_id\": \"7751057291\"\n\t\t\t\t},\n\t\t\t\t\"badges\": {\n\t\t\t\t\t\"is_staff_reviewer\": true,\n\t\t\t\t\t\"is_verified_buyer\": false,\n\t\t\t\t\t\"is_verified_reviewer\": false\n\t\t\t\t},\n\t\t\t\t\"media\": [],\n\t\t\t\t\"metrics\": {\n\t\t\t\t\t\"helpful_votes\": 6,\n\t\t\t\t\t\"not_helpful_votes\": 1,\n\t\t\t\t\t\"rating\": 4,\n\t\t\t\t\t\"helpful_score\": 0\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ugc_id\": 285216619,\n\t\t\t\t\"legacy_id\": 208829454,\n\t\t\t\t\"review_id\": 285216619,\n\t\t\t\t\"internal_review_id\": 208829454,\n\t\t\t\t\"details\": {\n\t\t\t\t\t\"comments\": \"So glad I found a year round weather proof jacket to hike in!\",\n\t\t\t\t\t\"headline\": \"Really great fit and weatherproof!\",\n\t\t\t\t\t\"nickname\": \"SP\",\n\t\t\t\t\t\"properties\": [{\n\t\t\t\t\t\t\t\"key\": \"sizing\",\n\t\t\t\t\t\t\t\"label\": \"Sizing\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"Feels true to size\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"key\": \"sleevelength\",\n\t\t\t\t\t\t\t\"label\": \"Sleeve Length\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"Feels true to length\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t}\n\t\t\t\t\t],\n\t\t\t\t\t\"locale\": \"en_US\",\n\t\t\t\t\t\"merchant_response\": \"Thanks so much for taking the time to provide your feedback; we're so glad you like the jacket!\\n\",\n\t\t\t\t\t\"merchant_response_date\": 1596138937030,\n\t\t\t\t\t\"location\": \"Chicago\",\n\t\t\t\t\t\"created_date\": 1596138494669,\n\t\t\t\t\t\"updated_date\": 1610643975862,\n\t\t\t\t\t\"bottom_line\": \"Yes\",\n\t\t\t\t\t\"product_page_id\": \"7751057291\"\n\t\t\t\t},\n\t\t\t\t\"badges\": {\n\t\t\t\t\t\"is_staff_reviewer\": true,\n\t\t\t\t\t\"is_verified_buyer\": false,\n\t\t\t\t\t\"is_verified_reviewer\": false\n\t\t\t\t},\n\t\t\t\t\"media\": [],\n\t\t\t\t\"metrics\": {\n\t\t\t\t\t\"helpful_votes\": 6,\n\t\t\t\t\t\"not_helpful_votes\": 1,\n\t\t\t\t\t\"rating\": 5,\n\t\t\t\t\t\"helpful_score\": 1311\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ugc_id\": 285207808,\n\t\t\t\t\"legacy_id\": 208822780,\n\t\t\t\t\"review_id\": 285207808,\n\t\t\t\t\"internal_review_id\": 208822780,\n\t\t\t\t\"details\": {\n\t\t\t\t\t\"comments\": \"Love this hat! Matches my winter coat so well!\",\n\t\t\t\t\t\"headline\": \"Very fun and cute hat!\",\n\t\t\t\t\t\"nickname\": \"SP\",\n\t\t\t\t\t\"properties\": [{\n\t\t\t\t\t\t\t\"key\": \"cons\",\n\t\t\t\t\t\t\t\"label\": \"Cons\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"Not Warm Enough\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"key\": \"pros\",\n\t\t\t\t\t\t\t\"label\": \"Pros\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"Attractive\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"key\": \"sizing\",\n\t\t\t\t\t\t\t\"label\": \"Sizing\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"Feels true to size\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t}\n\t\t\t\t\t],\n\t\t\t\t\t\"locale\": \"en_US\",\n\t\t\t\t\t\"merchant_response\": \"So glad you like it; really appreciate you taking the time to leave us a review!\",\n\t\t\t\t\t\"merchant_response_date\": 1596127308237,\n\t\t\t\t\t\"location\": \"Chicago\",\n\t\t\t\t\t\"created_date\": 1596127018842,\n\t\t\t\t\t\"updated_date\": 1596148307349,\n\t\t\t\t\t\"bottom_line\": \"Yes\",\n\t\t\t\t\t\"product_page_id\": \"7772289611\"\n\t\t\t\t},\n\t\t\t\t\"badges\": {\n\t\t\t\t\t\"is_staff_reviewer\": true,\n\t\t\t\t\t\"is_verified_buyer\": false,\n\t\t\t\t\t\"is_verified_reviewer\": false\n\t\t\t\t},\n\t\t\t\t\"media\": [],\n\t\t\t\t\"metrics\": {\n\t\t\t\t\t\"helpful_votes\": 0,\n\t\t\t\t\t\"not_helpful_votes\": 0,\n\t\t\t\t\t\"rating\": 5,\n\t\t\t\t\t\"helpful_score\": 1258\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ugc_id\": 285180531,\n\t\t\t\t\"legacy_id\": 208804271,\n\t\t\t\t\"review_id\": 285180531,\n\t\t\t\t\"internal_review_id\": 208804271,\n\t\t\t\t\"details\": {\n\t\t\t\t\t\"comments\": \"Finally a jacket that I can wear year round while hiking!\",\n\t\t\t\t\t\"headline\": \"Great weatherproof jacket!\",\n\t\t\t\t\t\"nickname\": \"SP\",\n\t\t\t\t\t\"properties\": [{\n\t\t\t\t\t\t\t\"key\": \"cons\",\n\t\t\t\t\t\t\t\"label\": \"Cons\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"Wrinkle Easily\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"key\": \"pros\",\n\t\t\t\t\t\t\t\"label\": \"Pros\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"Comfortable\",\n\t\t\t\t\t\t\t\t\"Washes Well\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"key\": \"sizing\",\n\t\t\t\t\t\t\t\"label\": \"Sizing\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"Feels true to size\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"key\": \"sleevelength\",\n\t\t\t\t\t\t\t\"label\": \"Sleeve Length\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"Feels true to length\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"key\": \"describeyourself\",\n\t\t\t\t\t\t\t\"label\": \"Describe Yourself\",\n\t\t\t\t\t\t\t\"type\": \"tag\",\n\t\t\t\t\t\t\t\"value\": [\n\t\t\t\t\t\t\t\t\"Casual Dresser\"\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t}\n\t\t\t\t\t],\n\t\t\t\t\t\"locale\": \"en_US\",\n\t\t\t\t\t\"merchant_response\": \"We're so glad you like it - as a heads up a new color is...\",\n\t\t\t\t\t\"merchant_response_date\": 1596051504302,\n\t\t\t\t\t\"location\": \"Chicago\",\n\t\t\t\t\t\"created_date\": 1596051208153,\n\t\t\t\t\t\"updated_date\": 1616007648352,\n\t\t\t\t\t\"bottom_line\": \"Yes\",\n\t\t\t\t\t\"product_page_id\": \"7751057291\"\n\t\t\t\t},\n\t\t\t\t\"badges\": {\n\t\t\t\t\t\"is_staff_reviewer\": false,\n\t\t\t\t\t\"is_verified_buyer\": false,\n\t\t\t\t\t\"is_verified_reviewer\": false\n\t\t\t\t},\n\t\t\t\t\"media\": [],\n\t\t\t\t\"metrics\": {\n\t\t\t\t\t\"helpful_votes\": 5,\n\t\t\t\t\t\"not_helpful_votes\": 0,\n\t\t\t\t\t\"rating\": 5,\n\t\t\t\t\t\"helpful_score\": 1379\n\t\t\t\t}\n\t\t\t}\n\t\t]\n\t}]\n}"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Post Review",
+                            "event": [
+                                {
+                                    "listen": "test",
+                                    "script": {
+                                        "id": "d8e90a81-af76-440b-b494-06e3aa3d5afb",
+                                        "exec": [
+                                            "pm.test(\"Status code is 201\", function () {",
+                                            "    pm.response.to.have.status(201);",
+                                            "});"
+                                        ],
+                                        "type": "text/javascript"
+                                    }
+                                }
+                            ],
+                            "id": "1d562121-088d-4c6d-9e24-a629c3d1e9f3",
+                            "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                            },
+                            "request": {
+                                "method": "POST",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/reviews/:productId",
+                                    "host": [
+                                        "{{url}}"
+                                    ],
+                                    "path": [
+                                        "reviews",
+                                        ":productId"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "id": "892f8d01-a3e2-4644-ae88-b61902166a5e",
+                                            "key": "productId",
+                                            "value": "",
+                                            "description": "(Required) "
+                                        }
+                                    ]
+                                },
+                                "description": "Post Review"
+                            },
+                            "response": [
+                                {
+                                    "id": "62bf3463-ac7c-4249-b4b6-be63ddf3822d",
+                                    "name": "Post Review",
+                                    "originalRequest": {
+                                        "method": "POST",
+                                        "header": [],
+                                        "url": {
+                                            "raw": "{{baseUrl}}/reviews/:productId",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "reviews",
+                                                ":productId"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "productId"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Created",
+                                    "code": 201,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": "{\n \"status\": \"success\"\n}"
+                                }
+                            ]
+                        }
+                    ],
+                    "id": "08b2e1d8-76bd-43a1-865a-eef3f3b3bf23",
+                    "description": "ProductID is a reference to a particular product."
+                },
+                {
+                    "name": "Single Review",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "id": "8e39f84b-f8a8-4bce-a6c4-d57b578c208d",
+                                "exec": [
+                                    "pm.test(\"Status code is 200\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "id": "0065995e-a172-489b-85b5-83c35dcd6493",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/reviews/:reviewId",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "reviews",
+                                ":reviewId"
+                            ],
+                            "variable": [
+                                {
+                                    "id": "7179e550-511c-4888-8840-39328c18ebe0",
+                                    "key": "reviewId",
+                                    "value": "",
+                                    "description": "(Required) "
+                                }
+                            ]
+                        },
+                        "description": "Single Review"
+                    },
+                    "response": [
+                        {
+                            "id": "2d0b75c8-10e4-48d2-b252-298253ccdb39",
+                            "name": "Single Review",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/reviews/:reviewId",
+                                    "host": [
+                                        "{{url}}"
+                                    ],
+                                    "path": [
+                                        "reviews",
+                                        ":reviewId"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "reviewId"
+                                        }
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": "{\n \"badges\": {\n  \"is_staff_reviewer\": false,\n  \"is_verified_buyer\": false,\n  \"is_verified_reviewer\": false\n },\n \"details\": {\n  \"comments\": \"test review\",\n  \"created_date\": 1621881061596,\n  \"headline\": \"This is the best hat ever TEST\",\n  \"locale\": \"en_US\",\n  \"location\": \"test\",\n  \"nickname\": \"test\",\n  \"product_page_id\": \"7772289611\",\n  \"properties\": [\n   {\n    \"key\": \"cons\",\n    \"label\": \"Cons\",\n    \"type\": \"tag\",\n    \"value\": [\n     \"Not Warm Enough\",\n     \"Poor Fit\"\n    ]\n   },\n   {\n    \"key\": \"pros\",\n    \"label\": \"Pros\",\n    \"type\": \"tag\",\n    \"value\": [\n     \"Attractive\",\n     \"Lightweight\"\n    ]\n   },\n   {\n    \"key\": \"sizing\",\n    \"label\": \"Sizing\",\n    \"type\": \"tag\",\n    \"value\": [\n     \"Feels true to size\"\n    ]\n   },\n   {\n    \"key\": \"bestuses\",\n    \"label\": \"Best Uses\",\n    \"type\": \"tag\",\n    \"value\": [\n     \"Travel\",\n     \"Winter Sports\"\n    ]\n   },\n   {\n    \"key\": \"describeyourself\",\n    \"label\": \"Describe Yourself\",\n    \"type\": \"tag\",\n    \"value\": [\n     \"High-end shopper\",\n     \"Practical\"\n    ]\n   }\n  ],\n  \"updated_date\": 1621881202447\n },\n \"internal_review_id\": 264778501,\n \"legacy_id\": 264778501,\n \"media\": [],\n \"metrics\": {\n  \"helpful_score\": 938,\n  \"helpful_votes\": 0,\n  \"not_helpful_votes\": 0,\n  \"rating\": 4\n },\n \"review_id\": 345742364,\n \"ugc_id\": 345742364\n}"
+                        }
+                    ]
+                }
+            ],
+            "id": "c5ec7799-7989-4011-9b12-695610911f50",
+            "description": "This folder enables Users to view and post reviews for A specific product of Union Fashion Apparel"
+        }
+    ],
+    "variable": [
+        {
+            "id": "dc1fece6-d095-4c98-b005-8c8959a4c6f0",
+            "key": "baseUrl",
+            "value": "{{productReviewsUrl}}",
+            "type": "string"
+        }
+    ]
+}
