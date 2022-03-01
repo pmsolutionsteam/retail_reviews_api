@@ -11,4 +11,4 @@ before_script:
 - node_modules/.bin/newman --version
 
 script:
-- node_modules/.bin/newman run postman/Reviews_af9d180b-d4f0-4007-a5e0-0d5fca9328d8.json
+- node_modules/.bin/newman run postman/collections/Reviews_af9d180b-d4f0-4007-a5e0-0d5fca9328d8.json
